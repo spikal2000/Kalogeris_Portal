@@ -89,13 +89,15 @@ app.put('/update/:id', (req, res) => {
 
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
+const { exec } = require('child_process');
+
 
 //UPKOAD FILE 
 app.post('/upload', upload.single('file'), (req, res) => {
     console.log("file received", req.file);
     const param1 = req.body.param1;
     const param2 = req.body.param2;
-    exec(`python3 /path/to/your/python/script.py ${req.file.path} ${param2}`, (error, stdout, stderr) => {
+    exec(`python ../scripts/uploadFile.py ${req.file.path} ${param2}`, (error, stdout, stderr) => {
         if (error) {
             console.error('Error executing the script:', error);
             res.status(500).json({ error: 'Error executing the script' });
