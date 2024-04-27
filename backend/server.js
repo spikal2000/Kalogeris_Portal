@@ -6,6 +6,10 @@ const app = express();
 const port = 8081;
 app.use(express.json());
 app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // or replace with the origin of your React app
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"]
+}));
 
 // Create a single MySQL connection configuration
 const db = mysql.createConnection({
@@ -52,6 +56,21 @@ app.post('/create', (req, res) => {
     });
 }   );
 
+// delete employee
+app.delete('/employee/:id', (req, res) => {
+    const { id } = req.params;
+    const sql = 'DELETE FROM employees WHERE id = ?;';
+    db.query(sql, [id], (err, data) => {
+        if (err) {
+            console.error('SQL Error:', err);  // This will log the specific SQL error
+            res.status(500).json({ error: 'Error deleting an employee' });
+        } else {
+            // Choose what to return; you probably don't need `data` if deletion was successful
+            res.json({ message: 'Employee deleted', details: data });
+        }
+    });
+});
+
 
 app.put('/update/:id', (req, res) => {
     const { id } = req.params;
@@ -67,6 +86,25 @@ app.put('/update/:id', (req, res) => {
     });
 });
 
+
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+
+//UPKOAD FILE 
+app.post('/upload', upload.single('file'), (req, res) => {
+    console.log("file received", req.file);
+    const param1 = req.body.param1;
+    const param2 = req.body.param2;
+    exec(`python3 /path/to/your/python/script.py ${req.file.path} ${param2}`, (error, stdout, stderr) => {
+        if (error) {
+            console.error('Error executing the script:', error);
+            res.status(500).json({ error: 'Error executing the script' });
+        }
+        console.log('Script output:', stdout);
+        console.error('Script errors:', stderr);
+        res.send({ message: 'File uploaded successfully', output: stdout });
+    });
+});
 
 // Start the server
 app.listen(port, () => {
