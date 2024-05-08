@@ -17,6 +17,68 @@ app.use(cors({
 }));
 app.use(cookieParser());
 
+
+//  USER AUTHENTICATION
+
+const verifyUser = (req, res, next) => {
+    const token = req.cookies.token;
+    if (!token) {
+        return res.status(401).json({ error: "Unauthorized" });
+    } else {
+        jwt.verify(token, jwtSecret, (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: "Unauthorized" });
+            } else {
+                req.username = decoded.username;
+                req.role = decoded.role;
+                next();
+            }
+        });
+    }
+};
+
+const userAccess = (req, res, next) => {
+    const token = req.cookies.token;
+    if (!token) {
+        return res.status(401).json({ error: "Unauthorized - No token provided" });
+    } else {
+        jwt.verify(token, jwtSecret, (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: "Unauthorized" });
+            }
+            req.username = decoded.username;
+            req.role = decoded.role;
+
+            if (req.role === 'user') {
+                next();
+            } else {
+                return res.status(403).json({ error: "Forbidden - Admin access required" });
+            }
+        });
+    }
+};
+
+const adminAccess = (req, res, next) => {
+    const token = req.cookies.token;
+    if (!token) {
+        return res.status(401).json({ error: "Unauthorized - No token provided" });
+    } else {
+        jwt.verify(token, jwtSecret, (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: "Unauthorized" });
+            }
+            req.username = decoded.username;
+            req.role = decoded.role;
+
+            if (req.role === 'admin') {
+                next();
+            } else {
+                return res.status(403).json({ error: "Forbidden - Admin access required" });
+            }
+        });
+    }
+};
+
 // Create a single MySQL connection configuration
 const db = mysql.createConnection({
     host: '127.0.0.1',
@@ -41,7 +103,7 @@ const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const { exec } = require('child_process');
 
-app.post('/upload', upload.single('file'), (req, res) => {
+app.post('/upload', adminAccess, upload.single('file'), (req, res) => {
     console.log("file received", req.file);
     const param1 = req.body.param1;
     const param2 = req.body.param2;
@@ -56,33 +118,16 @@ app.post('/upload', upload.single('file'), (req, res) => {
     });
 });
 
-//  USER AUTHENTICATION
 
-const verifyUser = (req, res, next) => {
-    const token = req.cookies.token;
-    if (!token) {
-        return res.status(401).json({ error: "Unauthorized" });
-    } else {
-        jwt.verify(token, jwtSecret, (err, decoded) => {
-            if (err) {
-                return res.status(401).json({ error: "Unauthorized" });
-            } else {
-                req.username = decoded.username;
-                req.role = decoded.role;
-                next();
-            }
-        });
-    }
-};
 
 app.get('/', verifyUser,(req, res) => {
-    return res.json({ Status: "User logged in", username: req.username, role: req.role});
+    return res.status(200).send({ authenticated: true, username: req.username, role: req.role });
 
 });
 
 const salt = 10;
 // addUser 
-app.post('/addUser', (req, res) => {
+app.post('/addUser', adminAccess, (req, res) => {
 
     const sql = "INSERT INTO users (username, email, password) VALUES (?);";
     bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
@@ -92,7 +137,7 @@ app.post('/addUser', (req, res) => {
         const values = [req.body.username, req.body.email, hash];
         db.query(sql, [values], (err, data) => {
             if (err) {
-                console.error('SQL Error:', err);  // This will log the specific SQL error
+                console.error('SQL Error:', err);
                 res.status(500).json({ Status: 'Error creating an user' });
             } else {
                 return res.json({ Status: 'User created' });
@@ -134,8 +179,10 @@ app.post('/login', (req, res) => {
 
 app.get('/logout', (req, res) => {
     res.clearCookie('token');
-    return res.json({Status: "User logged out"});
+    authenticated = false;
+    return res.status(200).send({Status: "User logged out", authenticated: false});
 });
+
 
 // Start the server
 app.listen(port, () => {

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import axios, { all } from 'axios';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import NavbarAdmin from './NavbarAdmin';
+
 function AddUser(){
     
     const [values, setValues] = useState({
@@ -24,13 +26,19 @@ function AddUser(){
                     alert(response.data.Status)
                 }
             })
-        .then(error => {console.log(error)});
+        .catch(error => {
+            console.log(error);
+            alert('Υπήρξε κάποιο πρόβλημα');
+        });
         
 
     }
 
     return (
+        <>
+        <NavbarAdmin />
     <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
+        
         <div className="bg-white p-3 rounded w-25">
             <h2>Προσθήκη Xρήστη</h2>
             <form onSubmit={handleSubmit}>
@@ -50,6 +58,7 @@ function AddUser(){
             </form>
         </div>
     </div>
+    </>
     )
 }
 
