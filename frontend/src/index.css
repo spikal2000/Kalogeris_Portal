@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-link {
+  color: #007bff; /* Bootstrap primary color */
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.nav-link:hover {
+  color: #0056b3; /* Darken the blue a bit on hover */
+}

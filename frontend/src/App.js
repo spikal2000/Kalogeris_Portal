@@ -1,20 +1,21 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Employee from './Employee';
-import CreateEmployee from './CreateEmployee';
-import EditEmployee from './EditEmployee';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import UploadFile from './UploadFile';
+import HomePage from './HomePage';
+import AddUser from './admin/AddUser';
+import Login from './Login';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Employee />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/addUser" element={<AddUser />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/uploadFile" element={<UploadFile />} />
-          <Route path="/create" element={<CreateEmployee />} />
-          <Route path="/update/:id" element={<EditEmployee />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

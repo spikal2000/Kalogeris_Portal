@@ -1,15 +1,21 @@
+
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const port = 8081;
+const cookieParser = require('cookie-parser');
 app.use(express.json());
-app.use(cors());
 app.use(cors({
-    origin: 'http://localhost:3000', // or replace with the origin of your React app
-    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"]
+    origin: 'http://localhost:3000',
+    methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+    credentials: true,
+    optionsSuccessStatus: 200
 }));
+app.use(cookieParser());
 
 // Create a single MySQL connection configuration
 const db = mysql.createConnection({
@@ -30,69 +36,11 @@ db.connect((err) => {
     }
 });
 
-// Define a route for the root URL to fetch data
-app.get('/', (req, res) => {
-    const sql = 'SELECT * FROM employees;';
-    db.query(sql, (err, data) => {
-        if (err) {
-            console.error('SQL Error:', err);  // This will log the specific SQL error
-            res.status(500).json({ error: 'Error retrieving data from the database' });
-        } else {
-            res.json(data);
-        }
-    });
-});
-
-app.post('/create', (req, res) => {
-    const { name, surname, email, role } = req.body;
-    const sql = 'INSERT INTO employees (name, surname, email, role) VALUES (?, ?, ?, ?);';
-    db.query(sql, [name, surname, email, role], (err, data) => {
-        if (err) {
-            console.error('SQL Error:', err);  // This will log the specific SQL error
-            res.status(500).json({ error: 'Error creating an employee' });
-        } else {
-            res.json({ message: 'Employee created' });
-        }
-    });
-}   );
-
-// delete employee
-app.delete('/employee/:id', (req, res) => {
-    const { id } = req.params;
-    const sql = 'DELETE FROM employees WHERE id = ?;';
-    db.query(sql, [id], (err, data) => {
-        if (err) {
-            console.error('SQL Error:', err);  // This will log the specific SQL error
-            res.status(500).json({ error: 'Error deleting an employee' });
-        } else {
-            // Choose what to return; you probably don't need `data` if deletion was successful
-            res.json({ message: 'Employee deleted', details: data });
-        }
-    });
-});
-
-
-app.put('/update/:id', (req, res) => {
-    const { id } = req.params;
-    const { name, surname, email, role } = req.body;
-    const sql = 'UPDATE employees SET name = ?, surname = ?, email = ?, role = ? WHERE id = ?;';
-    db.query(sql, [name, surname, email, role, id], (err, data) => {
-        if (err) {
-            console.error('SQL Error:', err);  // This will log the specific SQL error
-            res.status(500).json({ error: 'Error updating an employee' });
-        } else {
-            res.json({ message: 'Employee updated' });
-        }
-    });
-});
-
-
+//UPKOAD FILE 
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const { exec } = require('child_process');
 
-
-//UPKOAD FILE 
 app.post('/upload', upload.single('file'), (req, res) => {
     console.log("file received", req.file);
     const param1 = req.body.param1;
@@ -106,6 +54,87 @@ app.post('/upload', upload.single('file'), (req, res) => {
         console.error('Script errors:', stderr);
         res.send({ message: 'File uploaded successfully', output: stdout });
     });
+});
+
+//  USER AUTHENTICATION
+
+const verifyUser = (req, res, next) => {
+    const token = req.cookies.token;
+    if (!token) {
+        return res.status(401).json({ error: "Unauthorized" });
+    } else {
+        jwt.verify(token, jwtSecret, (err, decoded) => {
+            if (err) {
+                return res.status(401).json({ error: "Unauthorized" });
+            } else {
+                req.username = decoded.username;
+                req.role = decoded.role;
+                next();
+            }
+        });
+    }
+};
+
+app.get('/', verifyUser,(req, res) => {
+    return res.json({ Status: "User logged in", username: req.username, role: req.role});
+
+});
+
+const salt = 10;
+// addUser 
+app.post('/addUser', (req, res) => {
+
+    const sql = "INSERT INTO users (username, email, password) VALUES (?);";
+    bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
+        if(err){
+            return res.status(500).json({ error: "Error for hassing password"});
+        }
+        const values = [req.body.username, req.body.email, hash];
+        db.query(sql, [values], (err, data) => {
+            if (err) {
+                console.error('SQL Error:', err);  // This will log the specific SQL error
+                res.status(500).json({ Status: 'Error creating an user' });
+            } else {
+                return res.json({ Status: 'User created' });
+            }
+        });
+    })
+   
+});
+
+const jwtSecret = 'root';
+
+app.post('/login', (req, res) => {
+    
+    const sql = "SELECT * FROM users WHERE username = ?;";
+    db.query(sql, [req.body.username], (err, data) => {
+        if(err){
+            return res.status(500).json({ error: "Login error in server"});
+        }
+        if(data.length > 0){
+            bcrypt.compare(req.body.password, data[0].password, (err, result) => {
+                if(err){
+                    return res.status(500).json({ error: "Login error in server"});
+                }
+                if(result){
+                    const name = data[0].username;
+                    const token = jwt.sign({username: data[0].username, role: data[0].role}, jwtSecret, {expiresIn: '1d'});
+                    res.cookie('token', token, {sameSite: 'none', secure: true});
+                    return res.json({Status: "User logged in", username: data[0].username});
+                }else{
+                    return res.status(401).json({ error: "Wrong password"});
+                }
+            });
+        }else{
+            return res.status(404).json({ error: "User not found"});
+        }
+    });
+});
+
+
+app.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    return res.json({Status: "User logged out"});
 });
 
 // Start the server
