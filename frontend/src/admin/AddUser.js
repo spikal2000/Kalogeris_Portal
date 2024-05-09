@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import NavbarAdmin from './NavbarAdmin';
+import NavbarComponent from '../NavbarComponent';
 
 function AddUser(){
     
@@ -36,10 +36,10 @@ function AddUser(){
 
     return (
         <>
-        <NavbarAdmin />
-    <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
+        <NavbarComponent />
+    <div className="d-flex justify-content-center align-items-center vh-100">
         
-        <div className="bg-white p-3 rounded w-25">
+        <div className="bg-light p-5 rounded w-30">
             <h2>Προσθήκη Xρήστη</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">

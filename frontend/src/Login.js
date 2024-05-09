@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import NavbarComponent from './NavbarComponent';
 
 const Login = () => {
 
@@ -43,24 +44,28 @@ const Login = () => {
     }
 
     return (
-        <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
-            <div className='bg-white p-3 rounded w-25'>
-                <h2>Σύνδεση</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className='mb-3'>
-                        <label htmlFor='username' className='form-label'>username</label>
-                        <input type='text' onChange={e => setValues({...values, username: e.target.value})} className='form-control rounded-0' name='username' />
-                    </div>
-                    <div className='mb-3'>
-                        <label htmlFor='password' className='form-label'>Κωδικός</label>
-                        <input type='password' onChange={e => setValues({...values, password: e.target.value})} className='form-control rounded-0' name='password' />
-                    </div>
-                    <button type='submit' className='btn btn-success w-100 rounded-0'>Σύνδεση</button>
-                    <Link to='/' className='btn btn-default border w-100 bg-light rounded-0 mt-2'>Ακυρο</Link>
-                </form>
-            </div>  
+        <>
+            <NavbarComponent />
             
-        </div>
+            <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
+                <div className='bg-white p-3 rounded w-25'>
+                    <h2>Σύνδεση</h2>
+                    <form onSubmit={handleSubmit}>
+                        <div className='mb-3'>
+                            <label htmlFor='username' className='form-label'>username</label>
+                            <input type='text' onChange={e => setValues({...values, username: e.target.value})} className='form-control rounded-0' name='username' />
+                        </div>
+                        <div className='mb-3'>
+                            <label htmlFor='password' className='form-label'>Κωδικός</label>
+                            <input type='password' onChange={e => setValues({...values, password: e.target.value})} className='form-control rounded-0' name='password' />
+                        </div>
+                        <button type='submit' className='btn btn-success w-100 rounded-0'>Σύνδεση</button>
+                        <Link to='/' className='btn btn-default border w-100 bg-light rounded-0 mt-2'>Ακυρο</Link>
+                    </form>
+                </div>  
+                
+            </div>
+        </>
     );
 };
 
