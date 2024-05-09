@@ -9,6 +9,9 @@ function HomePage() {
 
 
 return (
+
+
+
     <>
         <NavbarComponent />
         
