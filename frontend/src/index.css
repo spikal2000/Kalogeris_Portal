@@ -1,19 +1,19 @@
 
 body {
-  width: 100%;      /* Set the width of the body */
-  min-height: 100vh; /* Set minimum height to full viewport height */
-  margin: 0;         /* Remove default margin */
-  padding: 0;        /* Remove default padding */
+  width: 100%;     
+  /* min-height: 100vh; */
+  margin: 0;        
+  padding: 0;       
   background: linear-gradient(to right, #f9e0d9, #efe9e6);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 footer {
-  background-color: inherit; /* Ensure it inherits the body or parent background color */
+  background-color: inherit;
 }
 
 .navbar-brand img {
-  width: 100px; /* Adjust the width as needed */
-  height: auto; /* This will maintain the aspect ratio */
+  width: 100px;
+  height: auto;
 }
