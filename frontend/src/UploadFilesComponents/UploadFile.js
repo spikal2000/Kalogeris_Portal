@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import NavbarComponent from '../NavbarComponent';
+import { useParams } from 'react-router-dom';
+
 
 function UploadFile() {
   const [file, setFile] = useState(null);
-
+  
+  let { branch, code } = useParams();
+  
   const onFileChange = event => {
     setFile(event.target.files[0]);
   };
@@ -22,7 +27,10 @@ function UploadFile() {
   };
 
   return (
+    
     <div>
+      <NavbarComponent />
+      <h1>Upload File for {branch} with code {code}</h1>
       <input type="file" onChange={onFileChange} />
       <button onClick={onFileUpload}>
         Upload!

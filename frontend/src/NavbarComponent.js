@@ -59,13 +59,12 @@ const NavbarComponent = () => {
         <div>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    {/* <Navbar.Brand href="/">Bakery Logo</Navbar.Brand> */}
                     <Navbar.Brand href="/" className="navbar-brand"><img src={logo} alt="Kalogeris" /></Navbar.Brand>
                     <Nav className="me-auto">
                         <Link to="/" className="nav-link">Home</Link>
                         {auth && (userRole === 'admin') && (
                             <NavDropdown title="Supervisor" id="basic-nav-dropdown">
-                                <NavDropdown.Item><Link to="/uploadFile" className="dropdown-item">Upload File</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to="/uploadFileSelection" className="dropdown-item">Upload File</Link></NavDropdown.Item>
                                 <NavDropdown.Item><Link to="/addUser" className="dropdown-item">Add User</Link></NavDropdown.Item>
                             </NavDropdown>
                         )}

@@ -23,7 +23,6 @@ const Login = () => {
             {
                 if(response.data.Status === 'User logged in'){
                     console.log(response);
-                    alert('Συνδεθήκατε Επιτυχώς');
                     navigate('/');
                 }else{
                     alert('Υπήρξε κάποιο πρόβλημα');
