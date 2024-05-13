@@ -11,7 +11,7 @@ import logo from './kalogerisLogo(1).png';
 const NavbarComponent = () => {
     // create auth for admin user and visitor
     const [auth, setAuth] = useState(false);
-    const [message, setMessage] = useState('');
+    // const [message, setMessage] = useState('');
     const [userRole, setUserRole] = useState('');  
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
@@ -27,7 +27,7 @@ const NavbarComponent = () => {
                 if(response.data.authenticated){
                     setAuth(true);
                     setUserRole(response.data.role);
-                    setMessage(`Welcome ${response.data.username}`);
+                    // setMessage(`Welcome ${response.data.username}`);
                     setUsername(response.data.username);
                 }else{
                     setAuth (false);
@@ -61,11 +61,11 @@ const NavbarComponent = () => {
                 <Container>
                     <Navbar.Brand href="/" className="navbar-brand"><img src={logo} alt="Kalogeris" /></Navbar.Brand>
                     <Nav className="me-auto">
-                        <Link to="/" className="nav-link">Home</Link>
+                        <Link to="/" className="nav-link">Αρχική</Link>
                         {auth && (userRole === 'admin') && (
-                            <NavDropdown title="Supervisor" id="basic-nav-dropdown">
-                                <NavDropdown.Item><Link to="/uploadFileSelection" className="dropdown-item">Upload File</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to="/addUser" className="dropdown-item">Add User</Link></NavDropdown.Item>
+                            <NavDropdown title="Admin" id="basic-nav-dropdown">
+                                <NavDropdown.Item><Link to="/uploadFileSelection" className="dropdown-item">Ανέβασμα Αρχείου</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to="/addUser" className="dropdown-item">Προσθήκη Χρήστη</Link></NavDropdown.Item>
                             </NavDropdown>
                         )}
                     </Nav>
@@ -77,7 +77,7 @@ const NavbarComponent = () => {
 
                         {
                         auth && (userRole === 'admin' || userRole === 'user') && 
-                            <button className="btn btn-outline-danger" style={{ marginLeft: '10px' }} onClick={handleDelete}>Εξοδος</button>
+                            <button className="btn btn-outline-danger" style={{ marginLeft: '10px' }} onClick={handleDelete}>Έξοδος</button>
                         }
 
                         {!auth && <Link to="/login" className="btn btn-outline-primary">Σύνδεση</Link>}

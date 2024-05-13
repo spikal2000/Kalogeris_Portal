@@ -103,7 +103,7 @@ const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const { exec } = require('child_process');
 
-app.post('/upload', upload.single('file'), (req, res) => {
+app.post('/upload', adminAccess,upload.single('file'), (req, res) => {
     console.log("file received", req.file);
     const code = req.body.branch;
     const param1 = req.body.param1;
