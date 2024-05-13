@@ -14,8 +14,15 @@ function UploadFile() {
   };
 
   const onFileUpload = () => {
+    
+    if (!file) {
+      alert('Please select a file first!');
+      return;
+    }
+
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("branch", code);
 
     axios.post("http://localhost:8081/upload", formData, {
       headers: {

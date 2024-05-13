@@ -103,11 +103,19 @@ const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const { exec } = require('child_process');
 
-app.post('/upload', adminAccess, upload.single('file'), (req, res) => {
+app.post('/upload', upload.single('file'), (req, res) => {
     console.log("file received", req.file);
+    const code = req.body.code;
     const param1 = req.body.param1;
     const param2 = req.body.param2;
-    exec(`python ../scripts/uploadFile.py ${req.file.path} ${param2}`, (error, stdout, stderr) => {
+    // code to string
+    //code = code.toString();
+    console.log(req.file.path);
+    
+    
+    const safeCode = encodeURIComponent(code);
+
+    exec(`python ../scripts/uploadFile.py ${req.file.path} ${param2} ${code}`, (error, stdout, stderr) => {
         if (error) {
             console.error('Error executing the script:', error);
             res.status(500).json({ error: 'Error executing the script' });
