@@ -32,6 +32,8 @@ def extract_general_info(content):
                 extracted_info[key] = match.group(1).replace(',', '.')
     return extracted_info
 
+
+
 def extract_detailed_entries(content):
     pattern_entries = r"--- (\w+) ---([\s\S]+?)(?=---|$)"
     entries = re.findall(pattern_entries, content)
@@ -81,7 +83,7 @@ def create_dataframe(entries, products):
 def connect_to_db():
     return pymysql.connect(host='localhost', user='root', password='root', db='kalogeris_portal', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
 
-def insert_database(entries_df, special_df, regular_df, expenses_df, general_info):
+def insert_database(entries_df, special_df, regular_df, expenses_df, total_expenses, general_info, branchCode):
     connection = connect_to_db()
     try:
         with connection.cursor() as cursor:
@@ -89,13 +91,13 @@ def insert_database(entries_df, special_df, regular_df, expenses_df, general_inf
             cash = float(general_info['cash'].replace(',', '')) if isinstance(general_info['cash'], str) else float(general_info['cash'])
             credit = float(general_info['credit'].replace(',', '')) if isinstance(general_info['credit'], str) else float(general_info['credit'])
 
-            sql = "INSERT INTO dataMain (date, totalEarning, cash, creditCard) VALUES (%s, %s, %s, %s)"
-            cursor.execute(sql, (general_info['date'], total_receipts, cash, credit))
+            sql = "INSERT INTO dataMain (date, totalEarning, totalExpenses, cash, creditCard, branch) VALUES (%s, %s, %s, %s, %s, %s)"
+            cursor.execute(sql, (general_info['date'], total_receipts, total_expenses, cash, credit, branchCode))
             main_id = cursor.lastrowid
 
             for index, row in entries_df.iterrows():
-                sql = "INSERT INTO dataEmployees (mainId, name, receipts, cash, credit, expenses) VALUES (%s, %s, %s, %s, %s, %s)"
-                cursor.execute(sql, (main_id, row['Name'], row['Receipts'], row['Cash'], row['Credit'], row['Expenses']))
+                sql = "INSERT INTO dataEmployees (mainId, name, receipts, cash, credit) VALUES (%s, %s, %s, %s, %s)"
+                cursor.execute(sql, (main_id, row['Name'], row['Receipts'], row['Cash'], row['Credit']))
 
             combined_df = pd.concat([special_df, regular_df])
             for index, row in combined_df.iterrows():
@@ -103,20 +105,37 @@ def insert_database(entries_df, special_df, regular_df, expenses_df, general_inf
                 cursor.execute(sql, (main_id, row['Description'], row['Quantity'], row['Value']))
 
             for index, row in expenses_df.iterrows():
-                total_expenses = float(row['TotalExpenses'].replace(',', '')) if isinstance(row['TotalExpenses'], str) else float(row['TotalExpenses'])
-                name = row.get('Name', None)
+                name = index
+                value = row[0]
                 sql = "INSERT INTO dataExpenses (mainId, name, totalExpenses) VALUES (%s, %s, %s)"
-                cursor.execute(sql, (main_id, name, total_expenses))
+                cursor.execute(sql, (main_id, name, value))
 
             connection.commit()
     finally:
         connection.close()
 
+def extract_expenses(content):
+    # Regex to capture the expenses section including the total expenses line
+    expenses_pattern = r"\*\*\* Ανάλυση εξόδων \*\*\*(.*?)Σύνολο εξόδων: (\d+,\d+)"
+    match = re.search(expenses_pattern, content, re.DOTALL)
+    
+    if match:
+        expenses_content = match.group(1)
+        total_expenses = float(match.group(2).replace(',', '.'))
+        
+        # Extract individual expense items
+        item_pattern = r"([\w\s]+)\s+(\d+,\d+)"
+        items = re.findall(item_pattern, expenses_content)
+        expenses = {item.strip(): float(amount.replace(',', '.')) for item, amount in items}
+
+        return expenses, total_expenses
+
+    return {}, 0.0
 
 # Run the script
 if __name__ == "__main__":
     filepath = sys.argv[1]
-    branchCode = sys.argv[2]
+    branchCode = sys.argv[3]
     content = read_file(filepath)
 
     general_info = extract_general_info(content)
@@ -124,8 +143,11 @@ if __name__ == "__main__":
     products = extract_products(content)
 
     entries_df, special_df, regular_df = create_dataframe(detailed_entries, products)
-    expenses_df = pd.DataFrame({'Name': [branchCode, 'Expense2'], 'TotalExpenses': [100, 200]})
-
-    insert_database(entries_df, special_df, regular_df, expenses_df, general_info)
+    
+    expenses_dict, total_expenses = extract_expenses(content)
+    expenses_df = pd.DataFrame.from_dict(expenses_dict, orient='index')
+    # print('Expenses',expenses_dict, total_expenses)
+    # expenses_df = pd.DataFrame({'Name': [branchCode, 'Expense2'], 'TotalExpenses': [100, 200]})
+    insert_database(entries_df, special_df, regular_df, expenses_df, total_expenses, general_info, branchCode)
 
     print("Data successfully saved to the database.")

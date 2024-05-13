@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import NavbarComponent from '../NavbarComponent';
 import { useParams } from 'react-router-dom';
-
-
+import './uf.css';
 function UploadFile() {
   const [file, setFile] = useState(null);
+  const [isUploaded, setIsUploaded] = useState(false);
   
   let { branch, code } = useParams();
   
   const onFileChange = event => {
     setFile(event.target.files[0]);
+    setIsUploaded(false);
   };
 
   const onFileUpload = () => {
-    
     if (!file) {
-      alert('Please select a file first!');
+      alert('Παρακαλώ επιλέξτε ένα αρχείο πρώτα!');
       return;
     }
 
@@ -29,21 +29,32 @@ function UploadFile() {
         'Content-Type': 'multipart/form-data'
       }
     })
-    .then(response => console.log('File uploaded successfully', response))
-    .catch(error => console.error('Error uploading file', error));
+    .then(response => {
+      console.log('Το αρχείο ανέβηκε επιτυχώς', response);
+      setIsUploaded(true);
+    })
+    .catch(error => {
+      console.error('Σφάλμα κατά τη μεταφόρτωση αρχείου', error);
+      setIsUploaded(false); // Ensure upload status is false on error
+    });
   };
 
   return (
-    
-    <div>
+    <>
       <NavbarComponent />
-      <h1>Upload File for {branch} with code {code}</h1>
-      <input type="file" onChange={onFileChange} />
-      <button onClick={onFileUpload}>
-        Upload!
-      </button>
-    </div>
+      <div className="upload-container">
+        <h3 className="text-center mb-4">Ανέβασμα αρχείου για {branch}</h3>
+        <div className="input-group mb-3">
+          <input type="file" className="form-control" onChange={onFileChange} disabled={isUploaded} />
+          <button className="btn btn-primary" onClick={onFileUpload} disabled={isUploaded}>
+            Ανεβάστε!
+          </button>
+        </div>
+        {isUploaded && <div className="alert alert-success mt-3">Το αρχείο ανέβηκε επιτυχώς!</div>}
+      </div>
+    </>
   );
+
 }
 
 export default UploadFile;

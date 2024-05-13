@@ -10,8 +10,10 @@ CREATE TABLE IF NOT EXISTS dataMain (
     id INT AUTO_INCREMENT PRIMARY KEY,
     date DATE,
     totalEarning FLOAT,
+    totalExpenses FLOAT,
     cash FLOAT,
-    creditCard FLOAT
+    creditCard FLOAT,
+    branch VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS dataExpenses (
@@ -19,7 +21,6 @@ CREATE TABLE IF NOT EXISTS dataExpenses (
     mainId INT,
     name VARCHAR(255),
     totalExpenses FLOAT,
-    insertedOn Date,
     FOREIGN KEY (mainId) REFERENCES dataMain(id)
 );
 
@@ -42,7 +43,6 @@ CREATE TABLE IF NOT EXISTS dataEmployees (
     receipts FLOAT,
     cash FLOAT,
     credit FLOAT,
-    expenses FLOAT,
     FOREIGN KEY (mainId) REFERENCES dataMain(id)
 );
 

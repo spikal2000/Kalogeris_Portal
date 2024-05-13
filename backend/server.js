@@ -105,12 +105,13 @@ const { exec } = require('child_process');
 
 app.post('/upload', upload.single('file'), (req, res) => {
     console.log("file received", req.file);
-    const code = req.body.code;
+    const code = req.body.branch;
     const param1 = req.body.param1;
     const param2 = req.body.param2;
     // code to string
     //code = code.toString();
-    console.log(req.file.path);
+    console.log('code:', code);
+    
     
     
     const safeCode = encodeURIComponent(code);
