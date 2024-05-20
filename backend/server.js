@@ -85,6 +85,7 @@ const db = mysql.createConnection({
     user: 'root',
     password: 'root',
     database: 'kalogeris_portal',
+    // process.env.DB_PASSWORD
     port: 3306,
     // authPlugin: 'mysql_native_password'  // Uncomment this line if necessary for authentication
 });
