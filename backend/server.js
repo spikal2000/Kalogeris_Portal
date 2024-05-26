@@ -78,14 +78,14 @@ const adminAccess = (req, res, next) => {
         });
     }
 };
-
+require('dotenv').config({ path: './process.env'});
 // Create a single MySQL connection configuration
 const db = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'root',
-    database: 'kalogeris_portal',
-    // process.env.DB_PASSWORD
+    host:  process.env.DB_HOST,
+    user:  process.env.DB_USERNAME,
+    password:  process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    
     port: 3306,
     // authPlugin: 'mysql_native_password'  // Uncomment this line if necessary for authentication
 });

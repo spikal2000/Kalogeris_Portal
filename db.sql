@@ -5,6 +5,16 @@ Drop Table IF EXISTS dataExpenses;
 Drop Table IF EXISTS dataProducts;
 Drop Table IF EXISTS dataEmployees;
 Drop Table IF EXISTS dataMain;
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE IF NOT EXISTS users(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    username varchar(255) NOT NULL,
+    email varchar(255) NULL,
+    password varchar(255) NOT NULL,
+    role varchar(45) default 'user'
+    
+)
 
 CREATE TABLE IF NOT EXISTS dataMain (
     id INT AUTO_INCREMENT PRIMARY KEY,
