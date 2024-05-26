@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 const port = 8081;
+const path = require('path');
 const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(cors({
@@ -16,6 +17,12 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));
 app.use(cookieParser());
+
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
 
 
 //  USER AUTHENTICATION
