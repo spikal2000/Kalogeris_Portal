@@ -14,7 +14,7 @@ function AddUser(){
     const navigate = useNavigate();
     const handleSubmit = async (event) => {
         event.preventDefault();
-        axios.post('http://localhost:8081/addUser', values)
+        axios.post('/addUser', values)
         .then(response => 
             {
                 if(response.data.Status === 'User created'){

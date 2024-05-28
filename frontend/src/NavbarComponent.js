@@ -21,7 +21,7 @@ const NavbarComponent = () => {
 
     
     useEffect(() => {
-        axios.get('http://localhost:8081/', { withCredentials: true })
+        axios.get('/', { withCredentials: true })
         .then(response => {
             console.log('Response data:', response.data); 
                 if(response.data.authenticated){
@@ -43,7 +43,7 @@ const NavbarComponent = () => {
 
     
     const handleDelete = () => {
-        axios.get('http://localhost:8081/logout', { withCredentials: true })
+        axios.get('/logout', { withCredentials: true })
         .then(response => {
             localStorage.removeItem('token');
             navigate('/');

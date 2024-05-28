@@ -18,7 +18,7 @@ const Login = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        axios.post('http://localhost:8081/login', values)
+        axios.post('/login', values)
         .then(response => 
             {
                 if(response.data.Status === 'User logged in'){

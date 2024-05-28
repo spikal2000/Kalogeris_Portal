@@ -24,7 +24,7 @@ function UploadFile() {
     formData.append("file", file);
     formData.append("branch", code);
 
-    axios.post("http://localhost:8081/upload", formData, {
+    axios.post("/upload", formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
