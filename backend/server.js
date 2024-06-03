@@ -17,6 +17,7 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));
 app.use(cookieParser());
+const apiRouter = express.Router();
 
 
 //  USER AUTHENTICATION
@@ -105,7 +106,7 @@ const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const { exec } = require('child_process');
 
-app.post('/upload', adminAccess,upload.single('file'), (req, res) => {
+apiRouter.post('/upload', adminAccess,upload.single('file'), (req, res) => {
     console.log("file received", req.file);
     const code = req.body.branch;
     const param1 = req.body.param1;
@@ -131,14 +132,14 @@ app.post('/upload', adminAccess,upload.single('file'), (req, res) => {
 
 
 
-app.get('/', verifyUser,(req, res) => {
+apiRouter.get('/', verifyUser,(req, res) => {
     return res.status(200).send({ authenticated: true, username: req.username, role: req.role });
 
 });
 
 const salt = 10;
 // addUser 
-app.post('/addUser', adminAccess, (req, res) => {
+apiRouter.post('/addUser', adminAccess, (req, res) => {
 
     const sql = "INSERT INTO users (username, email, password) VALUES (?);";
     bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
@@ -160,7 +161,7 @@ app.post('/addUser', adminAccess, (req, res) => {
 
 const jwtSecret = 'root';
 
-app.post('/login', (req, res) => {
+apiRouter.post('/login', (req, res) => {
     
     const sql = "SELECT * FROM users WHERE username = ?;";
     db.query(sql, [req.body.username], (err, data) => {
@@ -188,12 +189,14 @@ app.post('/login', (req, res) => {
 });
 
 
-app.get('/logout', (req, res) => {
+apiRouter.get('/logout', (req, res) => {
     res.clearCookie('token');
     authenticated = false;
     return res.status(200).send({Status: "User logged out", authenticated: false});
 });
 
+// Use the router with the /api prefix
+app.use('/api', apiRouter);
 
 // Start the server
 app.listen(port, () => {

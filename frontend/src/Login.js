@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import axios from 'axios';
+import axios from './axiosConfig';
 import { useNavigate } from 'react-router-dom';
 import NavbarComponent from './NavbarComponent';
 

@@ -1,5 +1,6 @@
-const config = {
-    API_SERVER: 'http://172.105.250.87:8081'
-};
+const packageJson = require('./package.json');
+const apiBaseUrl = packageJson.api.baseURL;
 
-export default config;
+module.exports = {
+  apiBaseUrl
+};

@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from '../axiosConfig';
 import NavbarComponent from '../NavbarComponent';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import './uf.css';
 function UploadFile() {
   const [file, setFile] = useState(null);
   const [isUploaded, setIsUploaded] = useState(false);
   
   let { branch, code } = useParams();
+  const navigate = useNavigate();
   
   const onFileChange = event => {
     setFile(event.target.files[0]);
     setIsUploaded(false);
+   
   };
 
   const onFileUpload = () => {
@@ -32,6 +34,9 @@ function UploadFile() {
     .then(response => {
       console.log('Το αρχείο ανέβηκε επιτυχώς', response);
       setIsUploaded(true);
+      setTimeout(() => {
+        navigate('/uploadFileSelection');
+      }, 3500);
     })
     .catch(error => {
       console.error('Σφάλμα κατά τη μεταφόρτωση αρχείου', error);

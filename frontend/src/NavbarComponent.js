@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import axios from './axiosConfig';
 import { useNavigate } from 'react-router-dom';
 import logo from './kalogerisLogo(1).png';
 
@@ -18,10 +18,9 @@ const NavbarComponent = () => {
 
    
    
-
     
     useEffect(() => {
-        axios.get('http://localhost:8081/', { withCredentials: true })
+        axios.get('/', { withCredentials: true })
         .then(response => {
             console.log('Response data:', response.data); 
                 if(response.data.authenticated){
@@ -43,7 +42,7 @@ const NavbarComponent = () => {
 
     
     const handleDelete = () => {
-        axios.get('http://localhost:8081/logout', { withCredentials: true })
+        axios.get('logout', { withCredentials: true })
         .then(response => {
             localStorage.removeItem('token');
             navigate('/');
@@ -65,7 +64,7 @@ const NavbarComponent = () => {
                         <Link to="/" className="nav-link">Home</Link>
                         {auth && (userRole === 'admin') && (
                             <NavDropdown title="Supervisor" id="basic-nav-dropdown">
-                                <NavDropdown.Item><Link to="/uploadFile" className="dropdown-item">Upload File</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to="/uploadFileSelection" className="dropdown-item">Upload File</Link></NavDropdown.Item>
                                 <NavDropdown.Item><Link to="/addUser" className="dropdown-item">Add User</Link></NavDropdown.Item>
                             </NavDropdown>
                         )}
