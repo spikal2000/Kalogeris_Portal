@@ -8,6 +8,9 @@ import pandas as pd
 import re
 import sys
 from datetime import datetime
+import os
+
+filepath = r'/backend/process.env'
 
 def read_file(filepath, encoding='ISO-8859-7'):
     with open(filepath, 'r', encoding=encoding) as file:
@@ -81,7 +84,7 @@ def create_dataframe(entries, products):
     return entries_df, special_df, regular_df
 
 def connect_to_db():
-    return pymysql.connect(host='localhost', user='root', password='root', db='kalogeris_portal', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+    return pymysql.connect(host=os.getenv('DB_HOST'), user=os.getenv('DB_USERNAME'), password=os.getenv('DB_PASSWORD'), db=os.getenv('DB_NAME'), charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
 
 def insert_database(entries_df, special_df, regular_df, expenses_df, total_expenses, general_info, branchCode):
     connection = connect_to_db()

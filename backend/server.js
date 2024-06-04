@@ -87,9 +87,8 @@ const db = mysql.createConnection({
     user:  process.env.DB_USERNAME,
     password:  process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    
-    port: 3306,
-    // authPlugin: 'mysql_native_password'  // Uncomment this line if necessary for authentication
+    port: 3306
+    // authPlugin: 'mysql_native_password'
 });
 
 // Connect to the database
