@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "pm2 start server.js",
     "dev": "nodemon server.js",
-    "build": "tsc"
+    "build": ""
   },
   "keywords": [],
   "author": "",

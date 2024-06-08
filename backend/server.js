@@ -11,7 +11,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: true,
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
     credentials: true,
     optionsSuccessStatus: 200
