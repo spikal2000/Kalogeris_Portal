@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34114.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "kalogeris_portal_intergration", "kalogeris_portal_intergration.dtproj", "{4B9EB152-3E67-4E8C-95AF-476AEF88B1B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B9EB152-3E67-4E8C-95AF-476AEF88B1B7}.Development|Default.ActiveCfg = Development
+		{4B9EB152-3E67-4E8C-95AF-476AEF88B1B7}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE87179F-9C75-4B61-B016-AAC14DAD6707}
+	EndGlobalSection
+EndGlobal
