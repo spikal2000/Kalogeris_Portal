@@ -11,11 +11,26 @@
   DTS:LocaleID="1032"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{7CBBDE61-3490-4756-BFA2-A14249F8F29D}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{C32F1A23-A862-44CE-A4AC-A6294116CAD2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[194.233.167.58.kalogeris_portal.admin]"
+      DTS:CreationName="ADO.NET:MySql.Data.MySqlClient.MySqlConnection, MySql.Data, Version=8.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d"
+      DTS:DTSID="{7CADEADF-2A0A-4287-81B7-442CEBA1B3D0}"
+      DTS:ObjectName="194.233.167.58.kalogeris_portal.admin">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="server=194.233.167.58;user id=admin;database=kalogeris_portal;">
+          <DTS:Password
+            DTS:Name="password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABHp2jalTGVp/Bh7ivl9uZ39PfZss1XNn1QQL/z8XAC7AAAAAAOgAAAAAIAACAAAAC5PZY5xVo1jF1KP9bPb/defpfcCyhECuV7UbN1PYJ3uDAAAACG6dhIfJgS7oS+QMhmEjBq6RA+kUlFFSW5G0ftclaPaeFaWtFBGtf4zs5prmObS6ZAAAAAdibtUh8fFXYn1RihEH2Mq8A5fyku+mJBK4Y+fRYFr3McijzX+YBfKzQpvh2dWfypbrm371IAzuIxpjSvXz0Bjg</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[84.254.28.230,1433.admin]"
       DTS:CreationName="OLEDB"
@@ -29,7 +44,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAYfT03ldB8uH5WQX30XyANPKIS2ZDCYpDVhZlVzkNeTgAAAAAOgAAAAAIAACAAAABe2etUxhdcuqFJnTXS7ZuvLqV9xz6tMo9aGGKB2Wo5MDAAAAAdc4A6dePikgOWwO5938c8DUw/5/T2jXwbmbybE3L0/AgqB4ud0K6xc7SDtL6UWcZAAAAAbxrt1hfegVIVTtLnUHe5yTW2yMCgwtS9QuPd9B2YymzIo1j5PAVj0Yfvqzq0rlnnESupT3Js3gg5+hFE7+rLtQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAw8h1wxl9Jz1DfWV/cCaMMqUQJY32XRKgtn0HF5HqgfgAAAAAOgAAAAAIAACAAAADnVVkhWAPzWvdtYYcH/f3vsUN3CXKVesWE/AAP2GArbTAAAACx0bsEEUv3boFG+6tlaxJUAwlJkIGHFCpf8wEVRmZ9vzNAldIRkeATh3/MHjPeLGBAAAAAG2V2HffQeGCKIfKfv1gDBCJVKoeR5N4rczsUb/Nf23cafYO9Z5T1/koLN6s7hASuXS5owyR4AP0MbA3S2RcnZg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -46,7 +61,24 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACvry7Ksmdc73BPCaRquu9hPmaJDohjXyJJ/f7LxfF2rwAAAAAOgAAAAAIAACAAAAC/vWKXZ8skEAlk+3RjTNH0Rq8bkQGcxDNFyNQ6C0QxsTAAAAAbgbX+fdqChcH+62zuXLaxFdA/4NIKlLVC71kJUUNUeOjdgdIaTHSybvz3SRF2B3BAAAAAdrCKLtgh6ziaT/Uv7KPKZthIq3YXWPIEPo2CtaynOCr7PGdVbD5opaM34kvbQG2uwZYeN8R/y9BSs9DSo8zkkQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADG24NoUxgb1563vgAuHeist44XWNFdEWIkt/y1l/fGaQAAAAAOgAAAAAIAACAAAABkDjwqEosOAluCk6k4ayUBXVSqrRb8HJEuePCX7beemDAAAAA+8RFTVyiQX8INB1EPnwb0TyWmt3aKu8ihBN4JCmFAxG+b2WnqbqR9/jhIcp65NdxAAAAAXY1XjFvEbsyRrm+xHkxJxMPshK9pFxW9e3Mgw6L58z3wN1eIM+ri5Evm9o9WiPfF8cKFPVz2gmOe/UkThHq1fw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[84.254.28.230.admin]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C305ECBE-A594-4C5E-9F53-5BCB43DE9D0C}"
+      DTS:ObjectName="84.254.28.230.admin">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=84.254.28.230;User ID=admin;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{C305ECBE-A594-4C5E-9F53-5BCB43DE9D0C}84.254.28.230.admin;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAtAUTeLVgSxCSSqsNZG7oZriHOUPQ2coecOV8JNjdTKwAAAAAOgAAAAAIAACAAAADlAWQmiOQlKC5F3z50XCPSU4yMuTX4h5VPVR3iJuXWCDAAAABQGfqGoET5o1ptNQRlI6ISet1G2O8cheU5vOuG3jFTJ+0KKP1ml/npMwHv2J5YUZNAAAAA2Lpi42VxWEu17kwuHZIF4dFRAy+kUsRV+jpz9lC0JLApw/MgGQzZGX4Mpcw0gZfU2/ODXuNAiO5hpqC12hSy6A</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -61,7 +93,24 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABceXp1uNqKBh2iLNrBv3Quhuhguo4wWijuM8XksfVIEwAAAAAOgAAAAAIAACAAAAC0Ken980xOnVbsCrpbV9gY8lMoOXFTPOx9omKk43wmNDAAAAB8nldIfEvE4yPF7H/GFeJcTv+q/aOws97zZMin2D/fXewU3DZ4kJgJGssWfVqXV4BAAAAAKYDVwuTfTvtWNyHClRFIXGxymbTf5Ni/laCbzuIsTznEEipNLa9cIEXGpqoI6tJXsc3CxBgHlCHsC+kcocXwLw</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADX6LHOATk7L5zfXnSnT+gCMX9EtztDNJl6y8hygu8CFAAAAAAOgAAAAAIAACAAAAB7Bsaf42o6z+tXSUBMdt/lszUwe3jYc/zdiX2QH9ljyjAAAAD2Cpkt1FQ/skC2hjx4Tv6h9G7C9ttX65f7CwVpACMt0T7ZHw/SD2CDJCSdH0aPiu1AAAAAuMyBsEmndqBWnMWJcmi1qSiQctOdxf4cDxpnKB6rIl6dZXDA/3kFYj4F/pB2SlKlyYeiFtO8B9hG9vM1b5qkFg</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[84.254.28.230.KalogerisPortalDW.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0DA86446-313F-496C-9700-E37A43ECF6FD}"
+      DTS:ObjectName="84.254.28.230.KalogerisPortalDW.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=84.254.28.230;User ID=sa;Initial Catalog=KalogerisPortalDW;Provider=MSOLEDBSQL.1;Persist Security Info=True;Application Name=SSIS-Package-{0DA86446-313F-496C-9700-E37A43ECF6FD}84.254.28.230.KalogerisPortalDW.sa;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB/oPZtAWsyV5fsB1/ZI2JQoHJt+q+N3iwSc9Mg0x+w9wAAAAAOgAAAAAIAACAAAABYjKSz7hIUYPCZZYNb2rrbcIzxSOT7ebFb4MJlgP7RwDAAAAB2LMcbjzk6IYmd4xYT12qgwo64+nWwZ0tEV7TeHs6l1DEQcp+JtXfzlWZBCFQpCNdAAAAAQjExMLAUT9wykbIn/UhsoBRh3BWI/99J3njzrAHUN3s+xcYmyDAmpWGYVbzTgds0l0oJFQKeegIkbw7qwG1alQ</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -76,7 +125,7 @@
           <DTS:Password
             DTS:Name="password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA9QOH1XBVOIl+DswIGGlyIT9GJdbuHjVZpblW9G7zNxwAAAAAOgAAAAAIAACAAAAAVXrhfBtwiGeG1R6alsJXatBQCD+qTbIsQAfonGzbOOxAAAAC18cvrCXAkd569vkAu7Y3uQAAAAL5ZRi6txTowyoosNSLRR3YWzzvGs15oy6fasm8f30VOW7u7Lt0mLn0ZsCCNqMqoCXUNLkZN2/dz6YH+dI7/rQQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABFLAALyMl7/iHqy5CChGrZwqa/ff55Ihgv/2rCzTyIjwAAAAAOgAAAAAIAACAAAAD2nY2Ynnn3Yzle5+NlCqUleldOuFP9/WVh14z56DqSDRAAAABZ2IPSbwvYW+2ThHopERAVQAAAAOSEOQTtVG48+ihfQFJANfyr6FASvyJdXQjrtplCUNSm6EnNS2twb4+idIsyjGKRU36vbP7bnu7vi0/HcD24Dh8</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -91,7 +140,7 @@
           <DTS:Password
             DTS:Name="password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABBrjo9bAQM4BwADEVgu5LqOJQvGVeOi5x3loRyw0cuZgAAAAAOgAAAAAIAACAAAAA5yMBYDY83L25GInM856JLXk71S7BZsKGdzWlSC4Ym5BAAAAAEeq3G/mvstx2hnkhgfvr7QAAAAJs6g2csM6kMDkrjH1vBMCxIdb6iBI1gzdYY8LpNzMyp9MmrPZ/khoHJPer0N0Gl+U5Tja2/snI7KRkm0fKJMxI</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQy0vUmv9PUWJDKTDD5XongAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAxC349MV/5oBk+SZwRfETWz7mNK/FSLubYqowfGZ6/8AAAAAAOgAAAAAIAACAAAACd6kNUVPsO4M2WAsZ2AxmUcdywb4h1oGSkJuDOlQKkshAAAACnpbPwrjaSWcvMWh30CsUAQAAAACau8YH9jsSSlVdveZsmlY5qJOOMw+OKo+68d98YnPkd6nlwixHzmznkRFRe1+Z0GwarXU+oLzPlcksVvPoDHy4</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -99,13 +148,30 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\DELETE FROM mysql Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{477613F7-D822-49A5-80FD-3AFE700774BA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DELETE FROM mysql Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7CADEADF-2A0A-4287-81B7-442CEBA1B3D0}"
+          SQLTask:SqlStatementSource="USE kalogeris_portal;&#xA;SET foreign_key_checks = 0;&#xA;DELETE FROM dataProducts;&#xA;DELETE FROM dataMain;&#xA;DELETE FROM dataExpenses;&#xA;DELETE FROM dataEmployees;&#xA;SET foreign_key_checks = 1;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\load Staging Tables"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{BDE94344-A216-4396-9CF5-9F5DFD086B38}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="load Staging Tables"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -113,7 +179,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\ADO NET Destination"
+              refId="Package\load Staging Tables\ADO NET Destination"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
@@ -126,7 +192,7 @@
                   description="The Destination database table name."
                   expressionType="Notify"
                   name="TableOrViewName"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">[dbo].[salesBranch_Dim]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">[dbo].[salesMain_Staging]</property>
                 <property
                   dataType="System.Int32"
                   description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
@@ -141,14 +207,14 @@
                   dataType="System.Boolean"
                   description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
                   expressionType="Notify"
-                  name="UseBulkInsertWhenPossible">false</property>
+                  name="UseBulkInsertWhenPossible">true</property>
                 <property
                   dataType="System.String"
                   name="UserComponentTypeName">Microsoft.ADONETDestination</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\ADO NET Destination.Connections[IDbConnection]"
+                  refId="Package\load Staging Tables\ADO NET Destination.Connections[IDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[84.254.28.230.KalogerisPortalDW.admin]"
                   connectionManagerRefId="Package.ConnectionManagers[84.254.28.230.KalogerisPortalDW.admin]"
                   description="Managed connection manager"
@@ -156,27 +222,83 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input]"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="ADO NET Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[branch]"
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="date"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[date]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[date]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[totalEarning]"
+                      cachedDataType="r4"
+                      cachedName="totalEarning"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[totalEarning]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[totalEarning]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[totalExpenses]"
+                      cachedDataType="r4"
+                      cachedName="totalExpenses"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[totalExpenses]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[totalExpenses]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[cash]"
+                      cachedDataType="r4"
+                      cachedName="cash"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[cash]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[cash]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[creditCard]"
+                      cachedDataType="r4"
+                      cachedName="creditCard"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[creditCard]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[creditCard]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[branch]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="branch"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[branch]"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[branch]" />
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[branch]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[branch]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ID]"
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[id]"
                       dataType="i4"
-                      name="ID" />
+                      name="id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[branch]"
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[date]"
+                      dataType="dbTimeStamp"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[totalEarning]"
+                      dataType="r4"
+                      name="totalEarning" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[totalExpenses]"
+                      dataType="r4"
+                      name="totalExpenses" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[cash]"
+                      dataType="r4"
+                      name="cash" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[creditCard]"
+                      dataType="r4"
+                      name="creditCard" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[branch]"
                       dataType="wstr"
                       length="255"
                       name="branch" />
@@ -185,22 +307,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  refId="Package\load Staging Tables\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="ADO NET Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  synchronousInputId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\load Staging Tables\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\load Staging Tables\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\load Staging Tables\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\load Staging Tables\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -209,7 +331,463 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\ADO NET Source"
+              refId="Package\load Staging Tables\ADO NET Destination 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">[dbo].[salesProducts_Staging]</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load Staging Tables\ADO NET Destination 1.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[84.254.28.230.KalogerisPortalDW.admin]"
+                  connectionManagerRefId="Package.ConnectionManagers[84.254.28.230.KalogerisPortalDW.admin]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].Columns[mainId]"
+                      cachedDataType="i4"
+                      cachedName="mainId"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[mainId]"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[mainId]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].Columns[description]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="description"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[description]"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[description]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].Columns[quantity]"
+                      cachedDataType="r4"
+                      cachedName="quantity"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[quantity]"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[quantity]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].Columns[value]"
+                      cachedDataType="r4"
+                      cachedName="value"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[value]"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[value]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[mainId]"
+                      dataType="i4"
+                      name="mainId" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[description]"
+                      dataType="wstr"
+                      length="255"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[quantity]"
+                      dataType="r4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[value]"
+                      dataType="r4"
+                      name="value" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load Staging Tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load Staging Tables\ADO NET Destination 2"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination 2"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">[dbo].[salesExpenses_Staging]</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load Staging Tables\ADO NET Destination 2.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[84.254.28.230.KalogerisPortalDW.admin]"
+                  connectionManagerRefId="Package.ConnectionManagers[84.254.28.230.KalogerisPortalDW.admin]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].Columns[mainId]"
+                      cachedDataType="i4"
+                      cachedName="mainId"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[mainId]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[mainId]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[name]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].Columns[totalExpenses]"
+                      cachedDataType="r4"
+                      cachedName="totalExpenses"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[totalExpenses]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[totalExpenses]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].Columns[vat]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="vat"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[vat]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[vat]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].Columns[iban]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="iban"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[iban]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[iban]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].Columns[rf]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="rf"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[rf]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[rf]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].Columns[phone1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone1"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[phone1]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[phone1]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].Columns[phone2]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="phone2"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[phone2]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[phone2]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[mainId]"
+                      dataType="i4"
+                      name="mainId" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[totalExpenses]"
+                      dataType="r4"
+                      name="totalExpenses" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[vat]"
+                      dataType="wstr"
+                      length="255"
+                      name="vat" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[iban]"
+                      dataType="wstr"
+                      length="255"
+                      name="iban" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[rf]"
+                      dataType="wstr"
+                      length="255"
+                      name="rf" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[phone1]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone1" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input].ExternalColumns[phone2]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load Staging Tables\ADO NET Destination 2.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Destination 2.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 2.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Destination 2.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load Staging Tables\ADO NET Destination 3"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination 3"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">[dbo].[salesEmployees_Staging]</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load Staging Tables\ADO NET Destination 3.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[84.254.28.230.KalogerisPortalDW.admin]"
+                  connectionManagerRefId="Package.ConnectionManagers[84.254.28.230.KalogerisPortalDW.admin]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].Columns[id]"
+                      cachedDataType="i4"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].Columns[mainId]"
+                      cachedDataType="i4"
+                      cachedName="mainId"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[mainId]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[mainId]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].Columns[name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="name"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[name]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[name]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].Columns[receipts]"
+                      cachedDataType="r4"
+                      cachedName="receipts"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[receipts]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[receipts]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].Columns[cash]"
+                      cachedDataType="r4"
+                      cachedName="cash"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[cash]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[cash]" />
+                    <inputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].Columns[credit]"
+                      cachedDataType="r4"
+                      cachedName="credit"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[credit]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[credit]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[mainId]"
+                      dataType="i4"
+                      name="mainId" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[receipts]"
+                      dataType="r8"
+                      name="receipts" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[cash]"
+                      dataType="r8"
+                      name="cash" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input].ExternalColumns[credit]"
+                      dataType="r8"
+                      name="credit" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load Staging Tables\ADO NET Destination 3.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Destination 3.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Destination 3.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Destination 3.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load Staging Tables\ADO NET Source"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
@@ -222,8 +800,8 @@
                   description="Specifies the SQL statement used by the component to extract data."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT branch
-FROM datamain;</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * 
+FROM dataExpenses;</property>
                 <property
                   dataType="System.Int32"
                   description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
@@ -249,58 +827,787 @@ FROM datamain;</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\ADO NET Source.Connections[IDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[localhost.kalogeris_portal.root]"
-                  connectionManagerRefId="Package.ConnectionManagers[localhost.kalogeris_portal.root]"
+                  refId="Package\load Staging Tables\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[194.233.167.58.kalogeris_portal.admin]"
+                  connectionManagerRefId="Package.ConnectionManagers[194.233.167.58.kalogeris_portal.admin]"
                   description="Managed connection manager"
                   name="IDbConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output]"
+                  refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output]"
                   name="ADO NET Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[branch]"
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[mainId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[mainId]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[mainId]"
+                      name="mainId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[branch]"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[name]"
                       length="255"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].Columns[branch]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[totalExpenses]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[totalExpenses]"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[totalExpenses]"
+                      name="totalExpenses"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[vat]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[vat]"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[vat]"
+                      name="vat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[iban]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[iban]"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[iban]"
+                      name="iban"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[rf]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[rf]"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[rf]"
+                      name="rf"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[phone1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[phone1]"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[phone1]"
+                      name="phone1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[phone2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[phone2]"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].Columns[phone2]"
+                      name="phone2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[mainId]"
+                      dataType="i4"
+                      name="mainId" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[totalExpenses]"
+                      dataType="r4"
+                      name="totalExpenses" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[vat]"
+                      dataType="wstr"
+                      length="255"
+                      name="vat" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[iban]"
+                      dataType="wstr"
+                      length="255"
+                      name="iban" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[rf]"
+                      dataType="wstr"
+                      length="255"
+                      name="rf" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[phone1]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone1" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[phone2]"
+                      dataType="wstr"
+                      length="255"
+                      name="phone2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[mainId]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[mainId]"
+                      name="mainId" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[totalExpenses]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[totalExpenses]"
+                      name="totalExpenses" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[vat]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[vat]"
+                      name="vat" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[iban]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[iban]"
+                      name="iban" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[rf]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[rf]"
+                      name="rf" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[phone1]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[phone1]"
+                      name="phone1" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[phone2]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[phone2]"
+                      name="phone2" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load Staging Tables\Mysql_DataEmployees"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Mysql_DataEmployees"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+FROM dataEmployees;</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load Staging Tables\Mysql_DataEmployees.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[194.233.167.58.kalogeris_portal.admin]"
+                  connectionManagerRefId="Package.ConnectionManagers[194.233.167.58.kalogeris_portal.admin]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[mainId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[mainId]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[mainId]"
+                      name="mainId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[name]"
+                      length="255"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[name]"
+                      name="name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[receipts]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[receipts]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[receipts]"
+                      name="receipts"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[cash]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[cash]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[cash]"
+                      name="cash"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[credit]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[credit]"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].Columns[credit]"
+                      name="credit"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[mainId]"
+                      dataType="i4"
+                      name="mainId" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[name]"
+                      dataType="wstr"
+                      length="255"
+                      name="name" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[receipts]"
+                      dataType="r4"
+                      name="receipts" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[cash]"
+                      dataType="r4"
+                      name="cash" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output].ExternalColumns[credit]"
+                      dataType="r4"
+                      name="credit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[mainId]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[mainId]"
+                      name="mainId" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[name]"
+                      name="name" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[receipts]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[receipts]"
+                      name="receipts" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[cash]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[cash]"
+                      name="cash" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[credit]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[credit]"
+                      name="credit" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load Staging Tables\Mysql_DataMain"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Mysql_DataMain"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+FROM dataMain;</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load Staging Tables\Mysql_DataMain.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[194.233.167.58.kalogeris_portal.admin]"
+                  connectionManagerRefId="Package.ConnectionManagers[194.233.167.58.kalogeris_portal.admin]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[totalEarning]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[totalEarning]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[totalEarning]"
+                      name="totalEarning"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[totalExpenses]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[totalExpenses]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[totalExpenses]"
+                      name="totalExpenses"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[cash]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[cash]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[cash]"
+                      name="cash"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[creditCard]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[creditCard]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[creditCard]"
+                      name="creditCard"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[branch]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[branch]"
+                      length="255"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].Columns[branch]"
                       name="branch"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[branch]"
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      dataType="dbTimeStamp"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[totalEarning]"
+                      dataType="r4"
+                      name="totalEarning" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[totalExpenses]"
+                      dataType="r4"
+                      name="totalExpenses" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[cash]"
+                      dataType="r4"
+                      name="cash" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[creditCard]"
+                      dataType="r4"
+                      name="creditCard" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output].ExternalColumns[branch]"
                       dataType="wstr"
                       length="255"
                       name="branch" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output]"
                   isErrorOut="true"
                   name="ADO NET Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[branch]"
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[totalEarning]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[totalEarning]"
+                      name="totalEarning" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[totalExpenses]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[totalExpenses]"
+                      name="totalExpenses" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[cash]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[cash]"
+                      name="cash" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[creditCard]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[creditCard]"
+                      name="creditCard" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[branch]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[branch]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[branch]"
                       name="branch" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load Staging Tables\Mysql_DataProducts"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Mysql_DataProducts"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+FROM dataProducts;</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load Staging Tables\Mysql_DataProducts.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[194.233.167.58.kalogeris_portal.admin]"
+                  connectionManagerRefId="Package.ConnectionManagers[194.233.167.58.kalogeris_portal.admin]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[mainId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[mainId]"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[mainId]"
+                      name="mainId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[description]"
+                      length="255"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[quantity]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[quantity]"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[quantity]"
+                      name="quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[value]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[value]"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].Columns[value]"
+                      name="value"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[mainId]"
+                      dataType="i4"
+                      name="mainId" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[description]"
+                      dataType="wstr"
+                      length="255"
+                      name="description" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[quantity]"
+                      dataType="r4"
+                      name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output].ExternalColumns[value]"
+                      dataType="r4"
+                      name="value" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[mainId]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[mainId]"
+                      name="mainId" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[description]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[quantity]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[quantity]"
+                      name="quantity" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[value]"
+                      dataType="r4"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[value]"
+                      name="value" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -311,15 +1618,272 @@ FROM datamain;</property>
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[ADO NET Source Output]"
-              endId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              refId="Package\load Staging Tables.Paths[ADO NET Source Output]"
+              endId="Package\load Staging Tables\ADO NET Destination.Inputs[ADO NET Destination Input]"
               name="ADO NET Source Output"
-              startId="Package\Data Flow Task\ADO NET Source.Outputs[ADO NET Source Output]" />
+              startId="Package\load Staging Tables\Mysql_DataMain.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\load Staging Tables.Paths[ADO NET Source Output1]"
+              endId="Package\load Staging Tables\ADO NET Destination 1.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\load Staging Tables\Mysql_DataProducts.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\load Staging Tables.Paths[ADO NET Source Output2]"
+              endId="Package\load Staging Tables\ADO NET Destination 3.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\load Staging Tables\Mysql_DataEmployees.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\load Staging Tables.Paths[ADO NET Source Output3]"
+              endId="Package\load Staging Tables\ADO NET Destination 2.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\load Staging Tables\ADO NET Source.Outputs[ADO NET Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TRUNCATE Staging TAbles"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{36D5A6AF-2490-48B2-9F25-2209C5A06D2E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TRUNCATE Staging TAbles"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0DA86446-313F-496C-9700-E37A43ECF6FD}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[salesEmployees_Staging];&#xA;TRUNCATE TABLE [dbo].[salesExpenses_Staging];&#xA;TRUNCATE TABLE [dbo].[salesProducts_Staging];&#xA;TRUNCATE TABLE [dbo].[salesMain_Staging];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UPDATE BrancNames_Dim"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9340F438-E824-490E-9808-435719738FA6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UPDATE BrancNames_Dim"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0DA86446-313F-496C-9700-E37A43ECF6FD}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[salesBranchNames_Dim](branchName)&#xA;SELECT DISTINCT branch&#xA;FROM [dbo].[salesMain_Staging]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UPDATE Main Table FACT"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0159A9E6-38BA-45F3-BC08-9BBCF6F9ACE8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UPDATE Main Table FACT"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0DA86446-313F-496C-9700-E37A43ECF6FD}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[salesMainTable_Fact] &#xA;(&#x9;&#xA;&#x9;ID,&#xA;&#x9;date, &#xA;&#x9;totalEarnings, &#xA;&#x9;cash,&#xA;&#x9;creditCard,&#xA;&#x9;branchID&#xA;)&#xA;SELECT &#xA;&#x9;main.id AS [ID],&#xA;&#x9;main.[date] AS [date],&#xA;&#x9;main.totalEarning AS totalEarnings,&#xA;&#x9;main.cash AS cash,&#xA;&#x9;main.creditCard AS creditCard,&#xA;&#x9;branch.ID AS branchID&#xA;FROM [dbo].[salesMain_Staging] main&#xA;INNER JOIN [salesBranchNames_Dim] branch&#xA;&#x9;ON main.branch = branch.branchName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UPDATE ProductNames"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9BAC3E7D-047A-4EF2-8BFB-41E5E394FA7A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UPDATE ProductNames"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0DA86446-313F-496C-9700-E37A43ECF6FD}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[salesProductNames](productName)&#xA;SELECT DISTINCT description&#xA;FROM [dbo].[salesProducts_Staging];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UPDATE salesEmployees_Dim"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DBA8762F-3801-4CBF-B23E-717EA88E0EFD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UPDATE salesEmployees_Dim"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0DA86446-313F-496C-9700-E37A43ECF6FD}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[salesEmployees_Dim]&#xA;(&#xA;&#x9;mainID,&#xA;&#x9;receipts,&#xA;&#x9;cash,&#xA;&#x9;credit,&#xA;&#x9;employeeID&#xA;)&#xA;SELECT &#xA;&#x9;employee.mainId,&#xA;&#x9;employee.receipts,&#xA;&#x9;employee.cash,&#xA;&#x9;employee.credit,&#xA;&#x9;ename.ID&#xA;FROM [dbo].[salesEmployees_Staging] employee&#xA;INNER JOIN [dbo].[salesEmployeeName] ename&#xA;&#x9;ON employee.name = ename.EmployeeName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UPDATE salesExpenses_Dim"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9AC7C5F4-8734-4EA4-B7D5-9D1C1B6E37EE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UPDATE salesExpenses_Dim"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0DA86446-313F-496C-9700-E37A43ECF6FD}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[salesExpenses_Dim]&#xA;(&#xA;&#x9;mainID,&#xA;&#x9;totalExpenses,&#xA;&#x9;supplierID&#xA;)&#xA;SELECT &#xA;&#x9;expenses.mainId,&#xA;&#x9;expenses.totalExpenses,&#xA;&#x9;sup.ID&#xA;FROM [dbo].[salesExpenses_Staging] expenses&#xA;INNER JOIN [dbo].[salesSuppliers] sup&#xA;&#x9;ON expenses.name = sup.supplier" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UPDATE salesProducts_Dim"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{851598C3-851E-4BFC-AE05-F21D321BC3B2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UPDATE salesProducts_Dim"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0DA86446-313F-496C-9700-E37A43ECF6FD}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[salesProducts_Dim]&#xA;(&#xA;&#x9;mainID,&#xA;&#x9;productNameID,&#xA;&#x9;quantity,&#xA;&#x9;value&#xA;)&#xA;SELECT &#xA;&#x9;products.mainId,&#xA;&#x9;branch.ID,&#xA;&#x9;products.quantity,&#xA;&#x9;products.value&#xA;FROM [dbo].[salesProducts_Staging] products&#xA;INNER JOIN [dbo].[salesBranchNames_Dim] branch&#xA;&#x9;ON products.description = branch.branchName" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\UPDATE salesSuppliers"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2512C0CB-1652-481E-AD65-205D83445785}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="UPDATE salesSuppliers"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0DA86446-313F-496C-9700-E37A43ECF6FD}"
+          SQLTask:SqlStatementSource="INSERT INTO [dbo].[salesSuppliers](supplier, vat, iban, rf, phone1, phone2)&#xA;SELECT DISTINCT name, vat, iban, rf, phone1,phone2&#xA;FROM [dbo].[salesExpenses_Staging];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A3F49ADC-1D68-49F1-BC76-77814E266E6B}"
+      DTS:From="Package\load Staging Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\UPDATE ProductNames" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{32D20151-0C14-4656-8DBB-928D99DE30C5}"
+      DTS:From="Package\load Staging Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\UPDATE salesSuppliers" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{68E52024-AA32-4DC9-8AEF-64147A287C26}"
+      DTS:From="Package\UPDATE salesExpenses_Dim"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\TRUNCATE Staging TAbles" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{C1677054-4E5D-4196-8F6B-9B569CDBC131}"
+      DTS:From="Package\UPDATE salesEmployees_Dim"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\TRUNCATE Staging TAbles" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{7FCEF038-EC61-4D16-96BE-80C531C1007C}"
+      DTS:From="Package\TRUNCATE Staging TAbles"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\DELETE FROM mysql Tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F16164C6-C705-45FA-8BF5-A7E3A2EA1A17}"
+      DTS:From="Package\load Staging Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\UPDATE BrancNames_Dim" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{FD299A11-F311-4626-B4BE-D823BD9EE8B0}"
+      DTS:From="Package\UPDATE ProductNames"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\UPDATE Main Table FACT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{F16C78DE-C19F-4AD6-A95C-C5D980C2EF3D}"
+      DTS:From="Package\UPDATE salesSuppliers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\UPDATE Main Table FACT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{5A2D7C3A-697F-42E8-A144-9C21B834B441}"
+      DTS:From="Package\UPDATE BrancNames_Dim"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\UPDATE Main Table FACT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{95B30904-9054-4528-997E-30EAE438BAD6}"
+      DTS:From="Package\UPDATE Main Table FACT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\UPDATE salesProducts_Dim" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{F92C71E5-F0AF-4426-919D-3549E2301B51}"
+      DTS:From="Package\UPDATE Main Table FACT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\UPDATE salesExpenses_Dim" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{92A06A78-C25D-494D-B37E-70AFA7473B71}"
+      DTS:From="Package\UPDATE Main Table FACT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\UPDATE salesEmployees_Dim" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{B14C1658-069A-4F03-95A9-57B11F3C66BF}"
+      DTS:From="Package\UPDATE salesProducts_Dim"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\TRUNCATE Staging TAbles" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -331,53 +1895,585 @@ FROM datamain;</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Data Flow Task"
-          TopLeft="373.833318697082,64.4333338016934" />
-      </GraphLayout>
-    </LayoutInfo>
-  </Package>
-  <TaskHost
-    design-time-name="Package\Data Flow Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+          Size="170.4,41.6"
+          Id="Package\load Staging Tables"
+          TopLeft="367.999985595544,27.1666668388579" />
         <NodeLayout
-          Size="160,41.6"
-          Id="Package\Data Flow Task\ADO NET Source"
-          TopLeft="202.166677031252,59.8666654337777" />
-        <NodeLayout
-          Size="179.2,41.6"
-          Id="Package\Data Flow Task\ADO NET Destination"
-          TopLeft="504.166646632884,120.46666762405" />
+          Size="192,41.6"
+          Id="Package\UPDATE ProductNames"
+          TopLeft="74.1666637195483,156.866667913331" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[ADO NET Source Output]"
-          TopLeft="362.166677031252,80.6666654337777">
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="412.599985595544,68.7666668388579">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="141.999969601632,60.6000021902723"
+              EndConnector="-242.433321875996,88.1000010744731"
               Start="0,0"
-              End="134.499969601632,60.6000021902723">
+              End="-242.433321875996,80.6000010744731">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="66.999984800816,0" />
+                    End="0,26.2716490594877" />
                   <mssgle:CubicBezierSegment
-                    Point1="66.999984800816,0"
-                    Point2="70.999984800816,0"
-                    Point3="70.999984800816,4" />
+                    Point1="0,26.2716490594877"
+                    Point2="0,30.2716490594877"
+                    Point3="-4,30.2716490594877" />
                   <mssgle:LineSegment
-                    End="70.999984800816,56.6000021902723" />
+                    End="-238.433321875996,30.2716490594877" />
                   <mssgle:CubicBezierSegment
-                    Point1="70.999984800816,56.6000021902723"
-                    Point2="70.999984800816,60.6000021902723"
-                    Point3="74.999984800816,60.6000021902723" />
+                    Point1="-238.433321875996,30.2716490594877"
+                    Point2="-242.433321875996,30.2716490594877"
+                    Point3="-242.433321875996,34.2716490594877" />
                   <mssgle:LineSegment
-                    End="134.499969601632,60.6000021902723" />
+                    End="-242.433321875996,80.6000010744731" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\UPDATE salesSuppliers"
+          TopLeft="355.833319193788,145.600001157125" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="452.316652394666,68.7666668388579">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76.8333343182669"
+              Start="0,0"
+              End="0,69.3333343182669">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.3333343182669" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\UPDATE BrancNames_Dim"
+          TopLeft="600.833309458363,142.133334462908" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="493.799985595544,68.7666668388579">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="211.033323862819,73.3666676240497"
+              Start="0,0"
+              End="211.033323862819,65.8666676240497">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.2091939601896" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.2091939601896"
+                    Point2="0,25.2091939601896"
+                    Point3="4,25.2091939601896" />
+                  <mssgle:LineSegment
+                    End="207.033323862819,25.2091939601896" />
+                  <mssgle:CubicBezierSegment
+                    Point1="207.033323862819,25.2091939601896"
+                    Point2="211.033323862819,25.2091939601896"
+                    Point3="211.033323862819,29.2091939601896" />
+                  <mssgle:LineSegment
+                    End="211.033323862819,65.8666676240497" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\UPDATE Main Table FACT"
+          TopLeft="345.833319591152,270.400002148946" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="170.166663719548,198.466667913331">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="228.866655871604,71.9333342356153"
+              Start="0,0"
+              End="228.866655871604,64.4333342356153">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.3391608337211" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.3391608337211"
+                    Point2="0,47.3391608337211"
+                    Point3="4,47.3391608337211" />
+                  <mssgle:LineSegment
+                    End="224.866655871604,47.3391608337211" />
+                  <mssgle:CubicBezierSegment
+                    Point1="224.866655871604,47.3391608337211"
+                    Point2="228.866655871604,47.3391608337211"
+                    Point3="228.866655871604,51.3391608337211" />
+                  <mssgle:LineSegment
+                    End="228.866655871604,64.4333342356153" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="449.83331939247,187.200001157125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83.2000009918214"
+              Start="0,0"
+              End="0,75.7000009918214">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.7000009918214" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="704.833309458363,183.733334462908">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-207.399989867211,86.6666676860386"
+              Start="0,0"
+              End="-207.399989867211,79.1666676860386">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.0351334900408" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,53.0351334900408"
+                    Point2="0,57.0351334900408"
+                    Point3="-4,57.0351334900408" />
+                  <mssgle:LineSegment
+                    End="-203.399989867211,57.0351334900408" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-203.399989867211,57.0351334900408"
+                    Point2="-207.399989867211,57.0351334900408"
+                    Point3="-207.399989867211,61.0351334900408" />
+                  <mssgle:LineSegment
+                    End="-207.399989867211,79.1666676860386" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\UPDATE salesProducts_Dim"
+          TopLeft="44.9999982118609,342.766669390731" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="399.033319591152,312.000002148946">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-246.033321379291,30.7666672417851"
+              Start="0,0"
+              End="-246.033321379291,23.2666672417851">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.51919471248694" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.51919471248694"
+                    Point2="0,10.5191947124869"
+                    Point3="-4,10.5191947124869" />
+                  <mssgle:LineSegment
+                    End="-242.033321379291,10.5191947124869" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-242.033321379291,10.5191947124869"
+                    Point2="-246.033321379291,10.5191947124869"
+                    Point3="-246.033321379291,14.5191947124869" />
+                  <mssgle:LineSegment
+                    End="-246.033321379291,23.2666672417851" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\UPDATE salesExpenses_Dim"
+          TopLeft="329.999986886979,360.483336172766" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="448.233319591152,312.000002148946">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.43333270417344,48.4833340238199"
+              Start="0,0"
+              End="-9.43333270417344,40.9833340238199">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.24166701191" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.24166701191"
+                    Point2="0,24.24166701191"
+                    Point3="-4,24.24166701191" />
+                  <mssgle:LineSegment
+                    End="-5.43333270417344,24.24166701191" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.43333270417344,24.24166701191"
+                    Point2="-9.43333270417344,24.24166701191"
+                    Point3="-9.43333270417344,28.24166701191" />
+                  <mssgle:LineSegment
+                    End="-9.43333270417344,40.9833340238199" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="223.2,41.6"
+          Id="Package\UPDATE salesEmployees_Dim"
+          TopLeft="654.16664067242,349.733336074617" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="497.433319591152,312.000002148946">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="268.333321081268,37.733333925671"
+              Start="0,0"
+              End="268.333321081268,30.233333925671">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.90111416995948" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.90111416995948"
+                    Point2="0,12.9011141699595"
+                    Point3="4,12.9011141699595" />
+                  <mssgle:LineSegment
+                    End="264.333321081268,12.9011141699595" />
+                  <mssgle:CubicBezierSegment
+                    Point1="264.333321081268,12.9011141699595"
+                    Point2="268.333321081268,12.9011141699595"
+                    Point3="268.333321081268,16.9011141699595" />
+                  <mssgle:LineSegment
+                    End="268.333321081268,30.233333925671" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\TRUNCATE Staging TAbles"
+          TopLeft="368.749985347192,459.333336983787" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="152.999998211861,384.366669390731">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="269.749987135331,74.9666675930553"
+              Start="0,0"
+              End="269.749987135331,67.4666675930553">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.3451482890997" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.3451482890997"
+                    Point2="0,49.3451482890997"
+                    Point3="4,49.3451482890997" />
+                  <mssgle:LineSegment
+                    End="265.749987135331,49.3451482890997" />
+                  <mssgle:CubicBezierSegment
+                    Point1="265.749987135331,49.3451482890997"
+                    Point2="269.749987135331,49.3451482890997"
+                    Point3="269.749987135331,53.3451482890997" />
+                  <mssgle:LineSegment
+                    End="269.749987135331,67.4666675930553" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="438.799986886979,402.083336172766">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.9499984602133,57.2500008110205"
+              Start="0,0"
+              End="33.9499984602133,49.7500008110205">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.6250004055102" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.6250004055102"
+                    Point2="0,28.6250004055102"
+                    Point3="4,28.6250004055102" />
+                  <mssgle:LineSegment
+                    End="29.9499984602133,28.6250004055102" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.9499984602133,28.6250004055102"
+                    Point2="33.9499984602133,28.6250004055102"
+                    Point3="33.9499984602133,32.6250004055102" />
+                  <mssgle:LineSegment
+                    End="33.9499984602133,49.7500008110205" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="765.76664067242,391.333336074617">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-243.016655325228,68.0000009091694"
+              Start="0,0"
+              End="-243.016655325228,60.5000009091694">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7594942693267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.7594942693267"
+                    Point2="0,44.7594942693267"
+                    Point3="-4,44.7594942693267" />
+                  <mssgle:LineSegment
+                    End="-239.016655325228,44.7594942693267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-239.016655325228,44.7594942693267"
+                    Point2="-243.016655325228,44.7594942693267"
+                    Point3="-243.016655325228,48.7594942693267" />
+                  <mssgle:LineSegment
+                    End="-243.016655325228,60.5000009091694" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="216,41.6"
+          Id="Package\DELETE FROM mysql Tables"
+          TopLeft="355.208319218623,552.083337681161" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="472.749985347192,500.933336983787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.54166612856898,51.1500006973743"
+              Start="0,0"
+              End="-9.54166612856898,43.6500006973743">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5750003486872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5750003486872"
+                    Point2="0,25.5750003486872"
+                    Point3="-4,25.5750003486872" />
+                  <mssgle:LineSegment
+                    End="-5.54166612856898,25.5750003486872" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.54166612856898,25.5750003486872"
+                    Point2="-9.54166612856898,25.5750003486872"
+                    Point3="-9.54166612856898,29.5750003486872" />
+                  <mssgle:LineSegment
+                    End="-9.54166612856898,43.6500006973743" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load Staging Tables">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\load Staging Tables\Mysql_DataMain"
+          TopLeft="145.500012616316,52.0666653717889" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\load Staging Tables\Mysql_DataProducts"
+          TopLeft="129.166661534045,172.60000105381" />
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\load Staging Tables\Mysql_DataEmployees"
+          TopLeft="67.4999973177912,443.600003182093" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\load Staging Tables\ADO NET Destination"
+          TopLeft="529.166645639474,57.4000002272924" />
+        <EdgeLayout
+          Id="Package\load Staging Tables.Paths[ADO NET Source Output]"
+          TopLeft="301.500012616316,75.5333327995407">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="227.666633023158,0"
+              Start="0,0"
+              End="220.166633023158,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="220.166633023158,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\load Staging Tables\ADO NET Destination 1"
+          TopLeft="507.499979833763,175.400001343091" />
+        <EdgeLayout
+          Id="Package\load Staging Tables.Paths[ADO NET Source Output1]"
+          TopLeft="303.566661534045,194.80000119845">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="203.933318299718,0"
+              Start="0,0"
+              End="196.433318299718,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="196.433318299718,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\load Staging Tables\ADO NET Destination 3"
+          TopLeft="425.833316412238,448.200002582868" />
+        <EdgeLayout
+          Id="Package\load Staging Tables.Paths[ADO NET Source Output2]"
+          TopLeft="252.299997317791,466.700002882481">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="173.533319094446,0"
+              Start="0,0"
+              End="166.033319094446,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="166.033319094446,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\load Staging Tables\ADO NET Source"
+          TopLeft="136.666661236021,347.00000196298" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\load Staging Tables\ADO NET Destination 2"
+          TopLeft="486.666647328272,348.733335310088" />
+        <EdgeLayout
+          Id="Package\load Staging Tables.Paths[ADO NET Source Output3]"
+          TopLeft="296.666661236021,368.666668636534">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="189.99998609225,0"
+              Start="0,0"
+              End="182.49998609225,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="182.49998609225,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -390,7 +2486,7 @@ FROM datamain;</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\ADO NET Destination">
+    design-time-name="Package\load Staging Tables\Mysql_DataMain">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -398,7 +2494,55 @@ FROM datamain;</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\ADO NET Source">
+    design-time-name="Package\load Staging Tables\Mysql_DataProducts">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load Staging Tables\Mysql_DataEmployees">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load Staging Tables\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load Staging Tables\ADO NET Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load Staging Tables\ADO NET Destination 3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load Staging Tables\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load Staging Tables\ADO NET Destination 2">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
