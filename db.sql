@@ -1,5 +1,5 @@
 
-
+create database kalogeris_portal;
 
 Drop Table IF EXISTS dataExpenses;
 Drop Table IF EXISTS dataProducts;

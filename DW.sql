@@ -130,3 +130,26 @@ FROM salesSuppliers
 
 SELECT *
 FROM [dbo].[salesExpenses_Staging]
+
+
+
+
+INSERT INTO [dbo].[salesMainTable_Fact] 
+(	
+	ID,
+	date, 
+	totalEarnings, 
+	cash,
+	creditCard,
+	branchID
+)
+SELECT 
+	main.id AS [ID],
+	main.[date] AS [date],
+	main.totalEarning AS totalEarnings,
+	main.cash AS cash,
+	main.creditCard AS creditCard,
+	branch.ID AS branchID
+FROM [dbo].[salesMain_Staging] main
+INNER JOIN [salesBranchNames_Dim] branch
+	ON main.branch = branch.branchName
