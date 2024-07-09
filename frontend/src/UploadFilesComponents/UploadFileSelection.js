@@ -13,16 +13,18 @@ function UploadFileSelection() {
     
     return (
         <>
-            <NavbarComponent />
+              <NavbarComponent />
+              <br/>
+              <br/>
             <div class="container mt-5">
-                <div class="d-flex flex-column align-items-center">
-                    <div class="w-50 ">
-                        <button class="btn btn-light w-50 mb-5" style={{ height: '60px', fontWeight: 'bold'}} onClick={() => handleClick('Ελληνικό', 'elliniko')}>
+            <div className=" d-flex flex-column align-items-center justify-content-center text-center"> 
+                    <div class="w-50">
+                        <button class="btn btn-light w-50 mb-4" style={{ height: '60px', fontWeight: 'bold'}} onClick={() => handleClick('Ελληνικό', 'elliniko')}>
                             Ελληνικό
                         </button>
                     </div>
                     <div class="w-50">
-                        <button class="btn btn-light w-50 mb-5" style={{ height: '60px', fontWeight: 'bold'}} onClick={() => handleClick('Βούλα', 'boula')}>
+                        <button class="btn btn-light w-50 mb-4" style={{ height: '60px', fontWeight: 'bold'}} onClick={() => handleClick('Βούλα', 'boula')}>
                             Βούλα
                         </button>
                     </div>
@@ -31,6 +33,7 @@ function UploadFileSelection() {
                             Παλαιό Φάληρο
                         </button>
                     </div>
+                    
                 </div>
             </div>
         </>

@@ -47,6 +47,8 @@ function UploadFile() {
   return (
     <>
       <NavbarComponent />
+      <br />
+      <br />
       <div className="upload-container">
         <h3 className="text-center mb-4">Ανέβασμα αρχείου για {branch}</h3>
         <div className="input-group mb-3">

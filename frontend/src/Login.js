@@ -47,8 +47,8 @@ const Login = () => {
             <NavbarComponent />
             
             <div className='d-flex justify-content-center align-items-center vh-100'>
-                <div className='bg-white p-5 rounded w-25'>
-                    <h2>Σύνδεση</h2>
+                <div className='bg-white p-4 rounded col-8 col-md-6 col-lg-4'> {/* Adjust columns based on screen size */}
+                    <h2 className='text-center mb-4'>Σύνδεση</h2>
                     <form onSubmit={handleSubmit}>
                         <div className='mb-3'>
                             <label htmlFor='username' className='form-label'>username</label>
@@ -61,8 +61,7 @@ const Login = () => {
                         <button type='submit' className='btn btn-success w-100 rounded-0'>Σύνδεση</button>
                         <Link to='/' className='btn btn-default border w-100 bg-light rounded-0 mt-2'>Ακυρο</Link>
                     </form>
-                </div>  
-                
+                </div>
             </div>
         </>
     );

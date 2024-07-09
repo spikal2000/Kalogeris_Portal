@@ -55,38 +55,30 @@ const NavbarComponent = () => {
 
     
     return (
-        <div>
-            <Navbar bg="light" expand="lg">
-                <Container>
-                    {/* <Navbar.Brand href="/">Bakery Logo</Navbar.Brand> */}
-                    <Navbar.Brand href="/" className="navbar-brand"><img src={logo} alt="Kalogeris" /></Navbar.Brand>
+        <Navbar bg="light" expand="lg" fixed="top">
+            <Container fluid>
+                <Navbar.Brand as={Link} to="/" className="navbar-brand"><img src={logo} alt="Kalogeris" /></Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to="/" className="nav-link">Home</Link>
-                        {auth && (userRole === 'admin') && (
+                        <Nav.Link as={Link} to="/" className="nav-link">Home</Nav.Link>
+                        {auth && userRole === 'admin' && (
                             <NavDropdown title="Supervisor" id="basic-nav-dropdown">
-                                <NavDropdown.Item><Link to="/uploadFileSelection" className="dropdown-item">Upload File</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to="/addUser" className="dropdown-item">Add User</Link></NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/uploadFileSelection">Upload File</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/addUser">Add User</NavDropdown.Item>
                             </NavDropdown>
                         )}
                     </Nav>
                     <Nav>
-                        {
-                            auth && <Navbar.Brand className="text font-weight-bold">{username}</Navbar.Brand>
-                        }           
-                                
-
-                        {
-                        auth && (userRole === 'admin' || userRole === 'user') && 
-                            <button className="btn btn-outline-danger" style={{ marginLeft: '10px' }} onClick={handleDelete}>Εξοδος</button>
+                        {auth && <Navbar.Text className="me-2">Welcome, {username}</Navbar.Text>}
+                        {auth && (userRole === 'admin' || userRole === 'user') &&
+                            <button className="btn btn-outline-danger me-2" onClick={handleDelete}>Εξοδος</button>
                         }
-
-                        {!auth && <Link to="/login" className="btn btn-outline-primary">Σύνδεση</Link>}
+                        {!auth && <Link to="/login" className="btn btn-outline-primary me-2">Σύνδεση</Link>}
                     </Nav>
-                    
-                </Container>
-            </Navbar>
-
-        </div>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     );
 };
 
