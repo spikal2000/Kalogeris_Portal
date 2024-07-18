@@ -24,6 +24,7 @@ const Login = () => {
                 if(response.data.Status === 'User logged in'){
                     console.log(response);
                     navigate('/');
+                    window.location.reload();
                 }else{
                     alert('Υπήρξε κάποιο πρόβλημα');
                 }

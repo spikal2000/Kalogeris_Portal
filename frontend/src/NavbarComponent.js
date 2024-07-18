@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import {React, useEffect, useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import axios from './axiosConfig';
 import { useNavigate } from 'react-router-dom';
 import logo from './kalogerisLogo(1).png';
-
-
 
 
 const NavbarComponent = () => {
@@ -22,7 +20,7 @@ const NavbarComponent = () => {
     useEffect(() => {
         axios.get('/', { withCredentials: true })
         .then(response => {
-            console.log('Response data:', response.data); 
+            // console.log('Response data:', response.data); 
                 if(response.data.authenticated){
                     setAuth(true);
                     setUserRole(response.data.role);
@@ -34,12 +32,11 @@ const NavbarComponent = () => {
             }
         )
         .catch(error => {
-            console.error('Authentication error:', error);
+            // console.error('Authentication error:', error);
             setAuth(false);
         })
               
     }, [])
-
     
     const handleDelete = () => {
         axios.get('logout', { withCredentials: true })
@@ -61,12 +58,13 @@ const NavbarComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/" className="nav-link">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/" className="nav-link">Αρχική</Nav.Link>
                         {auth && userRole === 'admin' && (
-                            <NavDropdown title="Supervisor" id="basic-nav-dropdown">
-                                <NavDropdown.Item as={Link} to="/uploadFileSelection">Upload File</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to="/addUser">Add User</NavDropdown.Item>
-                            </NavDropdown>
+                            <Nav.Link as={Link} to="/supervisor" className="nav-link">Διαχειριστής</Nav.Link>
+                            // <NavDropdown title="Supervisor" id="basic-nav-dropdown">
+                            //     <NavDropdown.Item as={Link} to="/uploadFileSelection">Upload File</NavDropdown.Item>
+                            //     <NavDropdown.Item as={Link} to="/addUser">Add User</NavDropdown.Item>
+                            // </NavDropdown>
                         )}
                     </Nav>
                     <Nav>
