@@ -140,15 +140,16 @@ const salt = 10;
 // addUser 
 apiRouter.post('/addUser', adminAccess, (req, res) => {
 
-    const sql = "INSERT INTO users (username, email, password) VALUES (?);";
+    const sql = "INSERT INTO users (username, email, name, surname, branch, password) VALUES (?);";
     bcrypt.hash(req.body.password.toString(), salt, (err, hash) => {
         if(err){
             return res.status(500).json({ error: "Error for hassing password"});
         }
-        const values = [req.body.username, req.body.email, hash];
+        const values = [req.body.username, req.body.email,req.body.name,req.body.surname,req.body.branch, hash];
         db.query(sql, [values], (err, data) => {
             if (err) {
                 console.error('SQL Error:', err);
+                console.log([values]);
                 res.status(500).json({ Status: 'Error creating an user' });
             } else {
                 return res.json({ Status: 'User created' });

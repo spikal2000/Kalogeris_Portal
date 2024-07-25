@@ -83,9 +83,6 @@ def create_dataframe(entries, products):
         df[['Quantity', 'Value']] = df[['Quantity', 'Value']].replace(',', '.', regex=True).astype(float)
     return entries_df, special_df, regular_df
 
-def connect_to_db():
-    return pymysql.connect(host=os.getenv('DB_HOST'), user=os.getenv('DB_USERNAME'), password=os.getenv('DB_PASSWORD'), db=os.getenv('DB_NAME'), charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
-
 def insert_database(entries_df, special_df, regular_df, expenses_df, total_expenses, general_info, branchCode):
     connection = connect_to_db()
     try:
@@ -134,6 +131,9 @@ def extract_expenses(content):
         return expenses, total_expenses
 
     return {}, 0.0
+def connect_to_db():
+    return pymysql.connect(host='84.254.29.206', user='admin', password='Vaggosspyros!997', db='kalogeris_portal', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+
 
 # Run the script
 if __name__ == "__main__":
