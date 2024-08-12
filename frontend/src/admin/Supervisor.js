@@ -25,7 +25,7 @@ function Supervisor(){
                                 <div class="thumblist"><img src="https://i.imgur.com/ILEU18M.jpg" alt="Category"><img src="https://i.imgur.com/2kePJmX.jpg" alt="Category"></div> */}
                             </div>
                             <div class="card-body text-center">
-                                <h4 class="card-title">Προσθήκη Χρήστη</h4>
+                                <h4 class="card-title">Προσθήκη</h4>
                                 <h4 class="card-title">Χρήστη</h4>
                                 <p class="text-muted"></p>
                                 {/* <a class="btn btn-outline-primary btn-sm" href="#" data-abc="true">View Products</a> */}
@@ -50,7 +50,7 @@ function Supervisor(){
                     </a>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <a href="/generalchart" data-abc="true">
+                    <a href="/powerbi" data-abc="true">
                         <div class="card mb-30">
                             <div class="inner">
                                 {/* <div class="main-img"><img src="https://i.imgur.com/O0GMYuw.jpg" alt="Category"></div>
@@ -59,6 +59,20 @@ function Supervisor(){
                             <div class="card-body text-center">
                                 <h4 class="card-title">Charts </h4>
                                 <h4 class="card-title">Charts </h4>
+                                <p class="text-muted"></p>
+                                {/* <a class="btn btn-outline-primary btn-sm" href="#" data-abc="true">View Products</a> */}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="/generalorders" data-abc="true">
+                        <div class="card mb-30">
+                            <div class="inner">
+                            </div>
+                            <div class="card-body text-center">
+                                <h4 class="card-title">Orders </h4>
+                                <h4 class="card-title"> </h4>
                                 <p class="text-muted"></p>
                                 {/* <a class="btn btn-outline-primary btn-sm" href="#" data-abc="true">View Products</a> */}
                             </div>

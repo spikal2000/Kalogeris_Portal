@@ -1,10 +1,10 @@
 
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+const axios = require('axios');
 const app = express();
 const port = 8081;
 const path = require('path');
@@ -18,7 +18,6 @@ app.use(cors({
 }));
 app.use(cookieParser());
 const apiRouter = express.Router();
-
 
 //  USER AUTHENTICATION
 
@@ -187,6 +186,73 @@ apiRouter.post('/login', (req, res) => {
         }
     });
 });
+
+
+// --- Orders ---
+
+// Fetch orders
+apiRouter.get('/orders', (req, res) => {
+
+    const sql = 'SELECT * FROM orders';
+    db.query(sql, (err, data) => {
+        if(err){
+            return res.status(500).json({ error: "Login error in server"});
+        }
+        res.json(results);
+    });
+});
+
+// Create order
+apiRouter.post('/orders', async (req, res) => {
+    const { current_branch, destination_branch, description } = req.body;
+    const user_id = req.user.id; // Assuming user is authenticated and user ID is available
+
+    try {
+        await db.query(
+            'INSERT INTO orders (user_id, current_branch, destination_branch, description) VALUES (?, ?, ?, ?)',
+            [user_id, current_branch, destination_branch, description]
+        );
+        res.status(201).send('Order created');
+    } catch (error) {
+        console.error('Error creating order:', error);
+        res.status(500).send('Server error');
+    }
+});
+
+// POWER BI 
+apiRouter.post('/get-embed-token', async (req, res) => {
+    const tenantId = '083e698c-26e8-4b8d-aed1-fcdb11680e42';
+    const clientId = 'f604c8f7-8d40-4bb5-9b6f-ed22378278f4';
+    const clientSecret = 'y5K8Q~dll14gTH77dELNjI.9WPTfby496l8Z_aOV';
+    const authority = `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`;
+
+    const params = new URLSearchParams();
+    params.append('grant_type', 'client_credentials');
+    params.append('client_id', clientId);
+    params.append('client_secret', clientSecret);
+    params.append('scope', 'https://analysis.windows.net/powerbi/api/.default');
+
+    try {
+        const response = await axios.post(authority, params);
+        const accessToken = response.data.access_token;
+
+        const reportId = '45cc3b33-6b36-4b08-814e-68fb18d55bb9';
+        const config = {
+            headers: { Authorization: `Bearer ${accessToken}` }
+        };
+        const body = {
+            reports: [{ id: reportId }],
+            datasets: []
+        };
+        const embedResponse = await axios.post(`https://api.powerbi.com/v1.0/myorg/reports/${reportId}/GenerateToken`, body, config);
+        res.json({ embedToken: embedResponse.data.token });
+    } catch (error) {
+        console.error('Error generating token:', error);
+        res.status(500).send(`Error generating token: ${error.message}`);
+    }
+});
+
+
 
 
 apiRouter.get('/logout', (req, res) => {

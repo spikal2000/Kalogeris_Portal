@@ -11,6 +11,10 @@ import AddUser from './admin/AddUser';
 import Login from './Login';
 import GeneralChart from './ChartsComponents/generalchart';
 import Supervisor from './admin/Supervisor';
+import GeneralOrders from './Orders/generalOrders';
+import Dashboard from './Dashboard';
+import PowerBI from "./ChartsComponents/powerBiCharts"
+
 // import React, { useState, useEffect, useContext } from 'react';
 import axios from './axiosConfig';
 import { useNavigate } from 'react-router-dom';
@@ -29,12 +33,16 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           
-
+          <Route path="/generalorders"  element={<GeneralOrders />} />
+          <Route path="/dashboard"  element={<Dashboard />} />
+          <Route path="/powerbi" element={<PowerBI />} />
           <Route path="/supervisor"  element={<Supervisor />} />
           <Route path="/addUser" element={<AddUser />} />
           <Route path="/generalchart"  element={<GeneralChart />} />
           <Route path="/uploadFile/:branch/:code" element={<UploadFile />} />
           <Route path="/uploadFileSelection" element={<UploadFileSelection />} />
+          
+
         </Routes>
       </BrowserRouter>
     </div>

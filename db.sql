@@ -7,6 +7,8 @@ Drop Table IF EXISTS dataEmployees;
 Drop Table IF EXISTS dataMain;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS usersDetails;
+DROP TABLE IF EXISTS completed_orders;
+DROP TABLE IF EXISTS orders;
 
 CREATE TABLE IF NOT EXISTS users(
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -81,6 +83,31 @@ CREATE TABLE IF NOT EXISTS dataEmployees (
     FOREIGN KEY (mainId) REFERENCES dataMain(id),
     insertedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    description VARCHAR(255),
+    current_branch VARCHAR(255),
+    destination_branch VARCHAR(255),
+    status VARCHAR(255) DEFAULT 'pending',
+    insertedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS completed_orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    description VARCHAR(255),
+    current_branch VARCHAR(255),
+    destination_branch VARCHAR(255),
+    insertedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+
+
 
 
 INSERT INTO users (username, email, password, role) VALUES

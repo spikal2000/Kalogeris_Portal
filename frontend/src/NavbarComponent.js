@@ -66,6 +66,9 @@ const NavbarComponent = () => {
                             //     <NavDropdown.Item as={Link} to="/addUser">Add User</NavDropdown.Item>
                             // </NavDropdown>
                         )}
+                        {auth && (
+                            <Nav.Link as={Link} to="/dashboard" className="nav-link">Κεντρικός Πίνακας</Nav.Link>
+                        )}
                     </Nav>
                     <Nav>
                         {auth && <Navbar.Text className="me-2">Welcome, {username}</Navbar.Text>}
