@@ -8,6 +8,6 @@ module.exports = {
 
 const config = {
 
-  API_SERVER: 'https://kalogeris-portal.net/api'
+  API_SERVER: 'https://www.kalogeris-portal.net/api'
 
 };
