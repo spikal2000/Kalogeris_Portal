@@ -10,8 +10,6 @@ import sys
 from datetime import datetime
 import os
 
-filepath = r'/backend/process.env'
-
 def read_file(filepath, encoding='ISO-8859-7'):
     with open(filepath, 'r', encoding=encoding) as file:
         return file.read()
@@ -34,8 +32,6 @@ def extract_general_info(content):
             else:
                 extracted_info[key] = match.group(1).replace(',', '.')
     return extracted_info
-
-
 
 def extract_detailed_entries(content):
     pattern_entries = r"--- (\w+) ---([\s\S]+?)(?=---|$)"
@@ -75,24 +71,37 @@ def _extract_pattern(text, pattern_key):
 
 def create_dataframe(entries, products):
     entries_df = pd.DataFrame(entries)
+    
+    # Ensure all required columns exist, fill missing ones with default values
+    for col in ['Receipts', 'Cash', 'Credit', 'Expenses']:
+        if col not in entries_df.columns:
+            entries_df[col] = 0.0  # default value for missing columns
+
+    # Convert the columns to float, replacing commas with dots
     entries_df[['Receipts', 'Cash', 'Credit', 'Expenses']] = entries_df[['Receipts', 'Cash', 'Credit', 'Expenses']].replace(',', '.', regex=True).astype(float)
+
+    # Create DataFrames for special and regular products
     special_df = pd.DataFrame(products['special'], columns=["Description", "Quantity", "Value"])
     regular_df = pd.DataFrame(products['regular'], columns=["Description", "Quantity", "Value"])
+
+    # Clean and convert the product DataFrames
     for df in [special_df, regular_df]:
         df["Description"] = df["Description"].str.strip()
         df[['Quantity', 'Value']] = df[['Quantity', 'Value']].replace(',', '.', regex=True).astype(float)
+
     return entries_df, special_df, regular_df
 
 def insert_database(entries_df, special_df, regular_df, expenses_df, total_expenses, general_info, branchCode):
     connection = connect_to_db()
     try:
         with connection.cursor() as cursor:
-            total_receipts = float(general_info['total_receipts'].replace(',', '')) if isinstance(general_info['total_receipts'], str) else float(general_info['total_receipts'])
-            cash = float(general_info['cash'].replace(',', '')) if isinstance(general_info['cash'], str) else float(general_info['cash'])
-            credit = float(general_info['credit'].replace(',', '')) if isinstance(general_info['credit'], str) else float(general_info['credit'])
+            # Safely access each key with a default value of '0.0' if the key doesn't exist
+            total_receipts = float(general_info.get('total_receipts', '0.0').replace(',', '')) if isinstance(general_info.get('total_receipts'), str) else float(general_info.get('total_receipts', 0.0))
+            cash = float(general_info.get('cash', '0.0').replace(',', '')) if isinstance(general_info.get('cash'), str) else float(general_info.get('cash', 0.0))
+            credit = float(general_info.get('credit', '0.0').replace(',', '')) if isinstance(general_info.get('credit'), str) else float(general_info.get('credit', 0.0))
 
             sql = "INSERT INTO dataMain (date, totalEarning, totalExpenses, cash, creditCard, branch) VALUES (%s, %s, %s, %s, %s, %s)"
-            cursor.execute(sql, (general_info['date'], total_receipts, total_expenses, cash, credit, branchCode))
+            cursor.execute(sql, (general_info.get('date'), total_receipts, total_expenses, cash, credit, branchCode))
             main_id = cursor.lastrowid
 
             for index, row in entries_df.iterrows():
@@ -131,6 +140,7 @@ def extract_expenses(content):
         return expenses, total_expenses
 
     return {}, 0.0
+
 def connect_to_db():
     return pymysql.connect(host='84.254.29.206', user='admin', password='Vaggosspyros!997', db='kalogeris_portal', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
 
@@ -138,7 +148,7 @@ def connect_to_db():
 # Run the script
 if __name__ == "__main__":
     filepath = sys.argv[1]
-    branchCode = sys.argv[3]
+    branchCode = sys.argv[2]
     content = read_file(filepath)
 
     general_info = extract_general_info(content)
@@ -149,8 +159,7 @@ if __name__ == "__main__":
     
     expenses_dict, total_expenses = extract_expenses(content)
     expenses_df = pd.DataFrame.from_dict(expenses_dict, orient='index')
-    # print('Expenses',expenses_dict, total_expenses)
-    # expenses_df = pd.DataFrame({'Name': [branchCode, 'Expense2'], 'TotalExpenses': [100, 200]})
+    
     insert_database(entries_df, special_df, regular_df, expenses_df, total_expenses, general_info, branchCode)
 
     print("Data successfully saved to the database.")

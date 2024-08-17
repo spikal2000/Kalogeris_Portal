@@ -1,0 +1,25 @@
+CREATE DEFINER=`admin`@`%` PROCEDURE delete_all_data_tables()
+BEGIN
+    -- Step 1: Move data from main tables to staging tables
+    INSERT INTO dataMain_staging (id, date, totalEarning, totalExpenses, cash, creditCard, branch, insertedAt)
+    SELECT id, date, totalEarning, totalExpenses, cash, creditCard, branch, insertedAt
+    FROM dataMain;
+
+    INSERT INTO dataExpenses_staging (id, mainId, name, totalExpenses, insertedAt)
+    SELECT id, mainId, name, totalExpenses, insertedAt
+    FROM dataExpenses;
+
+    INSERT INTO dataProducts_staging (id, mainId, description, quantity, value, insertedAt)
+    SELECT id, mainId, description, quantity, value, insertedAt
+    FROM dataProducts;
+
+    INSERT INTO dataEmployees_staging (id, mainId, name, receipts, cash, credit, insertedAt)
+    SELECT id, mainId, name, receipts, cash, credit, insertedAt
+    FROM dataEmployees;
+
+    -- Step 2: Clear data from the main tables
+    DELETE FROM dataMain;
+    DELETE FROM dataExpenses;
+    DELETE FROM dataProducts;
+    DELETE FROM dataEmployees;
+END;

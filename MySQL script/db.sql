@@ -26,13 +26,9 @@ CREATE TABLE IF NOT EXISTS usersDetails(
     User_id INT PRIMARY KEY,
     year VARCHAR(255),
     month VARCHAR(255),
-    baseSalary FLOAT,
-    threeYears FLOAT DEFAULT 0,
-    SSE FLOAT, 
-    sh FLOAT,
-    holdings FLOAT,
     salary FLOAT,
     extraSalary FLOAT,
+    active VARCHAR(20),
     FOREIGN KEY (User_id) REFERENCES users(id),
     insertedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
@@ -55,7 +51,6 @@ CREATE TABLE IF NOT EXISTS dataExpenses (
     mainId INT,
     name VARCHAR(255),
     totalExpenses FLOAT,
-    buyDate DATETIME,
     FOREIGN KEY (mainId) REFERENCES dataMain(id),
     insertedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
@@ -115,6 +110,43 @@ INSERT INTO users (username, email, password, role) VALUES
 ('user', 'user@user.user', '$2b$10$3hA0uNtkULMGdjSiF0OzKO2ONkas2zZOg9.6uI6n6.kieJ06aagrm', 'user');
 
 
+CREATE TABLE IF NOT EXISTS dataMain_staging (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATE,
+    totalEarning FLOAT,
+    totalExpenses FLOAT,
+    cash FLOAT,
+    creditCard FLOAT,
+    branch VARCHAR(255),
+    insertedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS dataExpenses_staging (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mainId INT,
+    name VARCHAR(255),
+    totalExpenses FLOAT,
+    insertedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS dataProducts_staging (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mainId INT,
+    description VARCHAR(255),
+    quantity FLOAT,
+    value FLOAT,
+    insertedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS dataEmployees_staging (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    mainId INT,
+    name VARCHAR(255),
+    receipts FLOAT,
+    cash FLOAT,
+    credit FLOAT,
+    insertedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
 
 
 

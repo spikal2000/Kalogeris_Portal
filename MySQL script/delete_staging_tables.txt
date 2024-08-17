@@ -1,0 +1,8 @@
+CREATE DEFINER=`admin`@`%` PROCEDURE `delete_staging_tables`()
+BEGIN
+    -- Delete data from the staging tables
+    DELETE FROM dataMain_staging;
+    DELETE FROM dataExpenses_staging;
+    DELETE FROM dataProducts_staging;
+    DELETE FROM dataEmployees_staging;
+END;

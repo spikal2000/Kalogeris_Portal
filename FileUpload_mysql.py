@@ -70,14 +70,28 @@ def _extract_pattern(text, pattern_key):
     return match.group(1) if match else "0,00"
 
 def create_dataframe(entries, products):
+    # Create the DataFrame from the extracted entries
     entries_df = pd.DataFrame(entries)
+    
+    # Ensure all required columns exist, fill missing ones with default values
+    for col in ['Receipts', 'Cash', 'Credit', 'Expenses']:
+        if col not in entries_df.columns:
+            entries_df[col] = 0.0  # or any appropriate default value
+
+    # Convert the columns to float, replacing commas with dots
     entries_df[['Receipts', 'Cash', 'Credit', 'Expenses']] = entries_df[['Receipts', 'Cash', 'Credit', 'Expenses']].replace(',', '.', regex=True).astype(float)
+
+    # Create DataFrames for special and regular products
     special_df = pd.DataFrame(products['special'], columns=["Description", "Quantity", "Value"])
     regular_df = pd.DataFrame(products['regular'], columns=["Description", "Quantity", "Value"])
+
+    # Clean and convert the product DataFrames
     for df in [special_df, regular_df]:
         df["Description"] = df["Description"].str.strip()
         df[['Quantity', 'Value']] = df[['Quantity', 'Value']].replace(',', '.', regex=True).astype(float)
+
     return entries_df, special_df, regular_df
+
 
 def connect_to_db():
     return pymysql.connect(host='84.254.29.206', user='admin', password='Vaggosspyros!997', db='kalogeris_portal', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
@@ -86,10 +100,10 @@ def insert_database(entries_df, special_df, regular_df, expenses_df, total_expen
     connection = connect_to_db()
     try:
         with connection.cursor() as cursor:
-            total_receipts = float(general_info['total_receipts'].replace(',', '')) if isinstance(general_info['total_receipts'], str) else float(general_info['total_receipts'])
-            cash = float(general_info['cash'].replace(',', '')) if isinstance(general_info['cash'], str) else float(general_info['cash'])
-            credit = float(general_info['credit'].replace(',', '')) if isinstance(general_info['credit'], str) else float(general_info['credit'])
-
+            total_receipts = float(general_info.get('total_receipts', '0.0').replace(',', '')) if isinstance(general_info.get('total_receipts'), str) else float(general_info.get('total_receipts', 0.0))
+            cash = float(general_info.get('cash', '0.0').replace(',', '')) if isinstance(general_info.get('cash'), str) else float(general_info.get('cash', 0.0))
+            credit = float(general_info.get('credit', '0.0').replace(',', '')) if isinstance(general_info.get('credit'), str) else float(general_info.get('credit', 0.0))
+           
             sql = "INSERT INTO dataMain (date, totalEarning, totalExpenses, cash, creditCard, branch) VALUES (%s, %s, %s, %s, %s, %s)"
             cursor.execute(sql, (general_info['date'], total_receipts, total_expenses, cash, credit, branchCode))
             main_id = cursor.lastrowid
@@ -132,8 +146,13 @@ def extract_expenses(content):
     return {}, 0.0
 
 def process_all_files_in_folder(folder_path, branchCode):
-    for filename in os.listdir(folder_path):
-        if filename.endswith('.txt'):
+    # Get the list of all text files in the folder
+    files = [filename for filename in os.listdir(folder_path) if filename.endswith('.txt')]
+    total_files = len(files)
+    successful_files = 0
+
+    for index, filename in enumerate(files, start=1):
+        try:
             filepath = os.path.join(folder_path, filename)
             content = read_file(filepath)
             
@@ -147,7 +166,14 @@ def process_all_files_in_folder(folder_path, branchCode):
             expenses_df = pd.DataFrame.from_dict(expenses_dict, orient='index')
             
             insert_database(entries_df, special_df, regular_df, expenses_df, total_expenses, general_info, branchCode)
-            print(f"Data from {filename} successfully saved to the database.")
+            successful_files += 1
+            print(f"Data from {filename} successfully saved to the database. Progress: {successful_files}/{total_files}")
+        
+        except Exception as e:
+            print(f"Error processing file {filename}: {e}")
+            print(f"Progress: {successful_files}/{total_files}")
+
+    print(f"Processing complete. {successful_files}/{total_files} files processed successfully.")
 
 # Run the script
 if __name__ == "__main__":
