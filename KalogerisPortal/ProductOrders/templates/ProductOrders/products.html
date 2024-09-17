@@ -1,0 +1,397 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<style>
+    .content-area {
+        padding-top: 20px;
+        height: calc(100vh - 110px);
+        overflow: hidden;
+    }
+    .sidebar-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: calc(100vh - 150px);
+        overflow-y: auto;
+    }
+    .sidebar-container h2 {
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .category-btn {
+        margin-bottom: 10px;
+        text-align: left;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .category-btn:hover {
+        background-color: #e9ecef;
+    }
+    .category-btn.active {
+        background-color: #0d6efd;
+        color: white;
+    }
+    .product-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+    }
+    .cart-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        padding: 20px;
+        position: sticky;
+        top: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .cart-container h2 {
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    .cart-item {
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .cart-item-name {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+    .cart-item-controls {
+        display: flex;
+        align-items: center;
+    }
+    .cart-item-count {
+        color: black;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        font-size: 0.9em;
+    }
+    .cart-item-btn {
+        padding: 2px 6px;
+        font-size: 0.9em;
+    }
+    .cart-item .badge {
+        font-size: 0.9em;
+    }
+    .cart-total {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    #checkout-btn {
+        font-size: 1.1em;
+    }
+    .product-card {
+        height: 100%;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1.25rem;
+    }
+    .card-text {
+        flex-grow: 1;
+        margin-bottom: 1rem;
+    }
+    .card-title {
+        margin-bottom: 0.75rem;
+        color: #0d6efd;
+    }
+    .category {
+        margin-bottom: 0.75rem;
+        font-style: italic;
+        color: #6c757d;
+    }
+    .row-cols-1,
+    .row-cols-sm-2,
+    .row-cols-md-3,
+    .row-cols-lg-3 {
+        row-gap: 30px;
+    }
+    .search-container {
+        margin-bottom: 20px;
+    }
+    .search-input {
+        border-radius: 20px;
+        padding-left: 15px;
+    }
+    .search-input:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        border-color: #80bdff;
+    }
+    @media (max-width: 991px) {
+        .content-area {
+            height: auto;
+            overflow: visible;
+        }
+        .sidebar-container, .product-container {
+            max-height: none;
+            overflow-y: visible;
+        }
+        .cart-container {
+            position: static;
+            margin-top: 20px;
+        }
+    }
+</style>
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <!-- Category Filter Sidebar -->
+        <div class="col-lg-2 col-md-3">
+            <div class="sidebar-container">
+                <h2 class="text-center"><i class="fas fa-list me-2"></i> Κατηγορίες</h2>
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <button class="btn btn-outline-secondary w-100 category-btn active" data-category="all">Όλα</button>
+                        <div id="category-buttons">
+                            <!-- Category buttons will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Container -->
+        <div class="col-lg-7 col-md-6 product-container ms-lg-3">
+            <h2 class="mb-4"><i class="fas fa-bread-slice"></i> Προϊόντα</h2>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="search-input" class="form-control search-input" placeholder="Αναζήτηση προϊόντων...">
+            </div>
+
+            <div id="product-list" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                {% for product in products %}
+                <div class="col product-item" data-category="{{ product.category }}">
+                    <div class="card product-card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="category">{{ product.category }}</p>
+                            <h3 class="category"> 1 / {{ product.uom }}</h3>
+                            <p class="card-text flex-grow-1">{{ product.description|truncatechars:100 }}</p>
+                            <button class="btn btn-outline-primary btn-sm add-to-cart w-100 mt-auto" data-product-id="{{ product.id }}" data-product-name="{{ product.name }}">
+                                <i class="fas fa-cart-plus me-2"></i> Προσθήκη στο καλάθι
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Cart Container -->
+<div class="col-lg-3 col-md-3">
+    <div class="cart-container">
+        <h2 class="text-center"><i class="fas fa-shopping-cart me-2"></i> Καλάθι</h2>
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <ul id="cart-items" class="list-group list-group-flush">
+                    <!-- Cart items will be dynamically added here -->
+                </ul>
+            </div>
+            <div class="card-footer bg-transparent">
+                <div class="cart-total">Συνολικά αντικείμενα: <span id="cart-total">0</span></div>
+                <select id="branch-select" class="form-select mb-3">
+                    <option value="">Επιλέξτε κατάστημα</option>
+                    <option value="faliro">Παλαιό Φάληρο</option>
+                    <option value="elliniko">Ελληνικό</option>
+                    <option value="boula">Βούλα</option>
+                </select>
+                <button id="checkout-btn" class="btn btn-success w-100">
+                    <i class="fas fa-check me-2"></i> Ολοκλήρωση Παραγγελίας
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let cart = {};
+let categories = new Set();
+
+function initializeCategories() {
+    const productItems = document.querySelectorAll('.product-item');
+    productItems.forEach(item => {
+        categories.add(item.dataset.category);
+    });
+
+    const categoryButtonsContainer = document.getElementById('category-buttons');
+    categories.forEach(category => {
+        const button = document.createElement('button');
+        button.className = 'btn btn-outline-info w-100 category-btn';
+        button.setAttribute('data-category', category);
+        button.textContent = category;
+        categoryButtonsContainer.appendChild(button);
+    });
+}
+
+function updateCart() {
+    const cartList = document.getElementById('cart-items');
+    cartList.innerHTML = '';
+    let totalItems = 0;
+    let product_uom = ''
+    
+    for (const [productId, item] of Object.entries(cart)) {
+        const li = document.createElement('li');
+        li.className = 'list-group-item cart-item';
+        li.innerHTML = `
+            <span class="cart-item-name">${item.name}</span>
+            <div class="cart-item-controls">
+                <button class="btn btn-sm btn-outline-primary cart-item-btn add-to-cart" data-product-id="${productId}">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <span class="cart-item-count">${item.quantity}</span>
+                <button class="btn btn-sm btn-outline-danger cart-item-btn remove-from-cart" data-product-id="${productId}">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        `;
+        cartList.appendChild(li);
+        totalItems += item.quantity;
+    }
+    document.getElementById('cart-total').textContent = totalItems;
+}
+
+function searchProducts(query) {
+    const productItems = document.querySelectorAll('.product-item');
+    productItems.forEach(item => {
+        const productName = item.querySelector('.card-title').textContent.toLowerCase();
+        if (productName.includes(query.toLowerCase())) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCategories();
+    updateCart();
+
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', function() {
+        searchProducts(this.value);
+    });
+});
+
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('add-to-cart') || e.target.parentElement.classList.contains('add-to-cart')) {
+        const button = e.target.classList.contains('add-to-cart') ? e.target : e.target.parentElement;
+        const productId = button.dataset.productId;
+        const productName = button.dataset.productName;
+        if (cart[productId]) {
+            cart[productId].quantity += 1;
+        } else {
+            cart[productId] = { name: productName, quantity: 1 };
+        }
+        updateCart();
+    }
+    
+    if (e.target.classList.contains('remove-from-cart') || e.target.parentElement.classList.contains('remove-from-cart')) {
+        const button = e.target.classList.contains('remove-from-cart') ? e.target : e.target.parentElement;
+        const productId = button.dataset.productId;
+        if (cart[productId].quantity > 1) {
+            cart[productId].quantity -= 1;
+        } else {
+            delete cart[productId];
+        }
+        updateCart();
+    }
+
+    if (e.target.classList.contains('category-btn')) {
+        const buttons = document.querySelectorAll('.category-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+
+        const selectedCategory = e.target.dataset.category;
+        const productItems = document.querySelectorAll('.product-item');
+        const searchInput = document.getElementById('search-input');
+        searchInput.value = '';
+
+        productItems.forEach(item => {
+            if (selectedCategory === 'all' || item.dataset.category === selectedCategory) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+});
+
+document.getElementById('checkout-btn').addEventListener('click', function() {
+    const branch = document.getElementById('branch-select').value;
+    if (!branch) {
+        alert('Παρακαλώ επιλέξτε κατάστημα πριν την ολοκλήρωση της παραγγελίας.');
+        return;
+    }
+    
+    fetch('./place-order/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({
+            cart: cart,
+            branch: branch
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.success) {
+            alert('Η παραγγελία σας καταχωρήθηκε επιτυχώς!');
+            cart = {};
+            updateCart();
+            document.getElementById('branch-select').value = '';
+        } else {
+            alert('Υπήρξε ένα σφάλμα κατά την καταχώρηση της παραγγελίας σας. Παρακαλώ δοκιμάστε ξανά.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Υπήρξε ένα σφάλμα κατά την επικοινωνία με τον διακομιστή. Παρακαλώ δοκιμάστε ξανά.');
+    });
+});
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
+
+{% endblock %}
