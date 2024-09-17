@@ -42,6 +42,7 @@ class ProductOrder(models.Model):
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('processing', 'Processing'),
+        ('ready_for_delivery', 'Ready for Delivery'),  # New status
         ('shipped', 'Shipped'),
         ('delivered', 'Delivered'),
         ('cancelled', 'Cancelled'),
@@ -61,6 +62,7 @@ class OrderItem(models.Model):
     order_id = models.ForeignKey(ProductOrder, related_name='items', on_delete=models.CASCADE)
     product_id = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
+    is_ready = models.BooleanField(default=False)
     
     def __str__(self):
             return f"{self.quantity} of {self.product.name}"

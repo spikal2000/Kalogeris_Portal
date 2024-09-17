@@ -44,7 +44,7 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'ProductsOrders' %}">Παραγγελίες Προιόντων</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Εμφανιση Παραγγελιών</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'order_list' %}">Λίστα Παραγγελιών</a>
                     </li>
                 {% endif %}
                 {% if user.is_superuser %}

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Λίστα Παραγγελιών</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-info {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+            color: white;
+        }
+        .btn-info:hover {
+            background-color: #138496;
+            border-color: #117a8b;
+            color: white;
+        }
+        .item-ready {
+            text-decoration: line-through;
+            color: #28a745;
+        }
+        @media (max-width: 768px) {
+            .table-responsive {
+                font-size: 0.9rem;
+            }
+            .home-button {
+                top: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <a href="{% url 'ProductsOrders' %}" class="btn btn-primary home-button">
+            <i class="bi bi-house-fill"></i> Αρχική
+        </a>
+        <h1 class="text-center my-4">Λίστα Παραγγελιών</h1>
+        <!-- filter controls -->
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="statusFilter" class="form-label">Φίλτρο Κατάστασης:</label>
+                    <select id="statusFilter" class="form-select">
+                        <option value="">Όλες</option>
+                        <option value="pending">Σε Εκκρεμότητα</option>
+                        <option value="processing">Σε Επεξεργασία</option>
+                        <option value="ready_for_delivery">Έτοιμο για Παράδοση</option>
+                        <option value="shipped">Απεστάλη</option>
+                        <option value="delivered">Παραδόθηκε</option>
+                        <option value="cancelled">Ακυρώθηκε</option>
+                    </select>
+                </div>
+                <div class="col-md-4" style="display: none;">
+                    <label for="dateFilter" class="form-label">Φίλτρο Ημερομηνίας:</label>
+                    <input type="date" id="dateFilter" class="form-control">
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button onclick="applyFilters()" class="btn btn-primary me-2">Εφαρμογή Φίλτρων</button>
+                    <button onclick="clearFilters()" class="btn btn-secondary">Καθαρισμός Φίλτρων</button>
+                </div>
+            </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Αρ. Παραγγελίας</th>
+                                <th>Χρήστης</th>
+                                <th>Κατάστημα</th>
+                                <th>Κατάσταση</th>
+                                <th>Ημ/νία Δημιουργίας</th>
+                                <th>Ενέργειες</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTableBody">
+                            <!-- Οι γραμμές παραγγελιών θα εισαχθούν δυναμικά εδώ -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal για Λεπτομέρειες Παραγγελίας -->
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="orderDetailsModalLabel">Λεπτομέρειες Παραγγελίας</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Κλείσιμο"></button>
+                </div>
+                <div class="modal-body" id="orderDetailsBody">
+                    <!-- Οι λεπτομέρειες παραγγελίας θα εισαχθούν δυναμικά εδώ -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Κλείσιμο</button>
+                    <button type="button" class="btn btn-primary" onclick="saveStatus()">Αποθήκευση Αλλαγών</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentOrderId = null;
+        let currentFilters = {
+            status: '',
+            date: ''
+        };
+
+        function applyFilters() {
+            currentFilters.status = document.getElementById('statusFilter').value;
+            currentFilters.date = document.getElementById('dateFilter').value;
+            fetchOrders();
+        }
+
+        function clearFilters() {
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('dateFilter').value = '';
+            currentFilters.status = '';
+            currentFilters.date = '';
+            fetchOrders();
+        }
+
+        function fetchOrders() {
+            const queryParams = new URLSearchParams(currentFilters).toString();
+            fetch(`{% url "get_orders" %}?${queryParams}`)
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('orderTableBody');
+                    tableBody.innerHTML = '';
+                    data.orders.forEach(order => {
+                        const row = `
+                            <tr>
+                                <td>${order.id}</td>
+                                <td>${order.user}</td>
+                                <td>${order.branch}</td>
+                                <td><span class="badge bg-${getStatusColor(order.status)}">${translateStatus(order.status)}</span></td>
+                                <td>${formatDate(order.created_at)} ${order.created_time}</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" onclick="viewOrderDetails(${order.id})">
+                                        <i class="bi bi-eye-fill"></i> Λεπτομέρειες
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                        tableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Σφάλμα:', error));
+        }
+        function formatDate(dateString) {
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric'
+            };
+            return new Date(dateString).toLocaleDateString('el-GR', options);
+        }
+
+        function viewOrderDetails(orderId) {
+            currentOrderId = orderId;
+            fetch(`{% url "get_order_details" %}?order_id=${orderId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const modalBody = document.getElementById('orderDetailsBody');
+                    modalBody.innerHTML = `
+                        <div class="mb-3">
+                            <strong>Αριθμός Παραγγελίας:</strong> ${data.id}
+                        </div>
+                        <div class="mb-3">
+                            <strong>Χρήστης:</strong> ${data.user}
+                        </div>
+                        <div class="mb-3">
+                            <strong>Κατάστημα:</strong> ${data.branch}
+                        </div>
+                        <div class="mb-3">
+                            <strong>Κατάσταση:</strong>
+                            <select id="statusSelect" class="form-select">
+                                <option value="pending" ${data.status === 'pending' ? 'selected' : ''}>Σε Εκκρεμότητα</option>
+                                <option value="processing" ${data.status === 'processing' ? 'selected' : ''}>Σε Επεξεργασία</option>
+                                <option value="ready_for_delivery" ${data.status === 'ready_for_delivery' ? 'selected' : ''}>Έτοιμο για Παράδοση</option>
+                                <option value="shipped" ${data.status === 'shipped' ? 'selected' : ''}>Απεστάλη</option>
+                                <option value="delivered" ${data.status === 'delivered' ? 'selected' : ''}>Παραδόθηκε</option>
+                                <option value="cancelled" ${data.status === 'cancelled' ? 'selected' : ''}>Ακυρώθηκε</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <strong>Ημερομηνία Δημιουργίας:</strong> ${formatDate(data.created_at)}
+                        </div>
+                        <div>
+                            <strong>Προϊόντα:</strong>
+                            <ul class="list-group">
+                                ${data.items.map(item => `
+                                    <li class="list-group-item d-flex justify-content-between align-items-center ${item.is_ready ? 'item-ready' : ''}">
+                                        <div>
+                                            <input type="checkbox" id="item_${item.id}" 
+                                                   onchange="updateItemStatus(${item.id}, this.checked)"
+                                                   ${item.is_ready ? 'checked' : ''}>
+                                            <label for="item_${item.id}">${item.product_name} (x${item.quantity})</label>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">${item.is_ready ? 'Έτοιμο' : 'Σε εξέλιξη'}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    const modal = new bootstrap.Modal(document.getElementById('orderDetailsModal'));
+                    modal.show();
+                })
+                .catch(error => console.error('Σφάλμα:', error));
+        }
+
+        function saveStatus() {
+            const newStatus = document.getElementById('statusSelect').value;
+            updateStatus(currentOrderId, newStatus);
+            const modal = bootstrap.Modal.getInstance(document.getElementById('orderDetailsModal'));
+            modal.hide();
+            applyFilters(); // Apply current filters after updating
+        }
+
+        function updateStatus(orderId, newStatus) {
+            fetch('{% url "update_order_status" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ order_id: orderId, status: newStatus })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Η κατάσταση ενημερώθηκε επιτυχώς');
+                    fetchOrders(); // Ανανέωση της λίστας παραγγελιών
+                } else {
+                    console.error('Αποτυχία ενημέρωσης κατάστασης');
+                }
+            })
+            .catch(error => console.error('Σφάλμα:', error));
+        }
+
+        function updateItemStatus(itemId, isReady) {
+            fetch('{% url "update_item_status" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ item_id: itemId, is_ready: isReady })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Η κατάσταση του προϊόντος ενημερώθηκε επιτυχώς');
+                    // Update the UI to reflect the change
+                    const listItem = document.getElementById(`item_${itemId}`).closest('li');
+                    if (isReady) {
+                        listItem.classList.add('item-ready');
+                        listItem.querySelector('.badge').textContent = 'Έτοιμο';
+                    } else {
+                        listItem.classList.remove('item-ready');
+                        listItem.querySelector('.badge').textContent = 'Σε εξέλιξη';
+                    }
+        
+                    // Check if all items are ready and update order status if necessary
+                    if (data.all_items_ready) {
+                        const statusSelect = document.getElementById('statusSelect');
+                        statusSelect.value = data.order_status;
+                        console.log('Όλα τα προϊόντα είναι έτοιμα. Η κατάσταση παραγγελίας ενημερώθηκε σε: ' + translateStatus(data.order_status));
+                    }
+                } else {
+                    console.error('Αποτυχία ενημέρωσης κατάστασης προϊόντος');
+                }
+            })
+            .catch(error => console.error('Σφάλμα:', error));
+        }
+
+        function translateStatus(status) {
+            const translations = {
+                'pending': 'Σε Εκκρεμότητα',
+                'processing': 'Σε Επεξεργασία',
+                'ready_for_delivery': 'Έτοιμο για Παράδοση',
+                'shipped': 'Απεστάλη',
+                'delivered': 'Παραδόθηκε',
+                'cancelled': 'Ακυρώθηκε'
+            };
+            return translations[status] || status;
+        }
+
+        function getStatusColor(status) {
+            const colors = {
+                'pending': 'warning',
+                'processing': 'info',
+                'ready_for_delivery': 'dark',
+                'shipped': 'primary',
+                'delivered': 'success',
+                'cancelled': 'danger'
+            };
+            return colors[status] || 'secondary';
+        }
+
+        function formatDate(dateString) {
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                hour12: false // Use 24-hour format
+            };
+            return new Date(dateString).toLocaleString('el-GR', options);
+        }
+
+        // Λήψη παραγγελιών αμέσως και στη συνέχεια κάθε 5 δευτερόλεπτα
+        fetchOrders();
+        setInterval(fetchOrders, 30000);
+    </script>
+</body>
+</html>
