@@ -1,0 +1,9 @@
+django
+crispy-bootstrap5
+django-crispy-forms
+mysqlclient
+Pillow
+django-extensions
+django-model-utils
+django-unicorn
+django-widget-tweaks
