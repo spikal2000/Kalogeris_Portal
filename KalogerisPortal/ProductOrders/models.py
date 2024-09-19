@@ -25,10 +25,11 @@ class Product(models.Model):
 
 
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     uom = models.CharField(max_length=50, choices=UOM_CHOICES)  # Unit of Measurement
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
+    supplier = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
