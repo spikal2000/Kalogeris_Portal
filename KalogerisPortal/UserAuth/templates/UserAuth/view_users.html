@@ -1,0 +1,92 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<div class="container-fluid mt-3 mt-lg-5 px-2 px-lg-5 scrollable-container">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white sticky-top">
+            <h2 class="mb-0 fs-4 fs-lg-2">Λίστα Εργαζομένων</h2>
+        </div>
+        <div class="card-body p-2 p-lg-3">
+            <div class="table-responsive">
+                <table class="table table-hover table-sm table-bordered">
+                    <thead class="table-light sticky-top">
+                        <tr>
+                            <th>Όνομα</th>
+                            <th>Επώνυμο</th>
+                            <th class="d-none d-md-table-cell">Ημερομηνία Πρόσληψης</th>
+                            <th class="d-none d-sm-table-cell">Μισθός</th>
+                            <th class="d-none d-lg-table-cell">Συνολικός Μισθός</th>
+                            <th>Ενέργειες</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for employee in Employees %}
+                        <tr>
+                            <td>{{ employee.name }}</td>
+                            <td>{{ employee.surname }}</td>
+                            <td class="d-none d-md-table-cell">{{ employee.date_of_joining|date:"d M Y" }}</td>
+                            <td class="d-none d-sm-table-cell">{{ employee.salary|floatformat:2 }}</td>
+                            <td class="d-none d-lg-table-cell">{{ employee.totalSalary|floatformat:2 }}</td>
+                            <td>
+                                <a href="{% url 'edit_user' employee.user.id %}" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-edit d-inline d-sm-none"></i>
+                                    <span class="d-none d-sm-inline"><i class="fas fa-edit me-1"></i>Επεξεργασία</span>
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center">Δεν βρέθηκαν εργαζόμενοι.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+    .scrollable-container {
+        max-height: calc(100vh - 20px);
+        overflow-y: auto;
+    }
+    .table th, .table td {
+        vertical-align: middle;
+    }
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .card-header {
+        background-color: #007bff;
+    }
+    .btn-outline-primary {
+        border-color: #007bff;
+        color: #007bff;
+    }
+    .btn-outline-primary:hover {
+        background-color: #007bff;
+        color: white;
+    }
+    .sticky-top {
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+    }
+    .table-responsive {
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+    }
+    @media (max-width: 576px) {
+        .table-responsive {
+            max-height: calc(100vh - 100px);
+        }
+        .card-body {
+            padding: 0.5rem;
+        }
+    }
+</style>
+{% endblock %}

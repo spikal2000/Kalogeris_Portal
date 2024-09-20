@@ -1,26 +1,23 @@
 {% load static %}
 
 <!doctype html>
-<html lang="en">
+<html lang="el">
   <head>
-    <!-- Required meta tags -->
+    <!-- Απαραίτητα meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <!-- Custom CSS -->
+    <!-- Προσαρμοσμένο CSS -->
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/content.css' %}">
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
     <link rel="stylesheet" href="{% static 'css/products.css' %}">
     
-
-
-    <title>{% block title %} Kalogeris-Portal {% endblock %} </title>
+    <title>{% block title %} kalogeris Portal {% endblock %} </title>
   </head>
   <body>
     {% csrf_token %}
@@ -29,19 +26,19 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'index' %}">
             <img src="{% static 'Assets/logo.png' %}" alt="" width="80" height="80" id="logo-img">
-            KalogerisPortal
+            kalogeris Portal
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Εναλλαγή πλοήγησης">
             <span class="navbar-toggler-icon">
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Αρχική</a>
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'ProductsOrders' %}">Παραγγελίες Προιόντων</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'ProductsOrders' %}">Παραγγελίες Προϊόντων</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'order_list' %}">Λίστα Παραγγελιών</a>
@@ -58,12 +55,12 @@
                 <li class="nav-item">
                     <form method="post" action="{% url 'logout' %}" class="nav-link" style="padding: 0; background: none;">
                         {% csrf_token %}
-                        <button type="submit" class="nav-link" style="background: none; border: none; cursor: pointer; padding: 0.5rem 1rem;">Logout</button>
+                        <button type="submit" class="nav-link" style="background: none; border: none; cursor: pointer; padding: 0.5rem 1rem;">Αποσύνδεση</button>
                     </form>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link" href="{% url 'login' %}">Σύνδεση</a>
                 </li>
                 {% endif %}
             </ul>
@@ -71,12 +68,9 @@
         </div>
     </nav>
     
-
     <div class="content-area">
         {% block content %} {% endblock %}
     </div>
-
-
 
     <!-- Bootstrap JavaScript -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

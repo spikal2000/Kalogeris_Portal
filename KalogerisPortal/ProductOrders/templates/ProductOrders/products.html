@@ -192,6 +192,9 @@
                             <button class="btn btn-outline-primary btn-sm add-to-cart w-100 mt-auto" data-product-id="{{ product.id }}" data-product-name="{{ product.name }}">
                                 <i class="fas fa-cart-plus me-2"></i> Προσθήκη στο καλάθι
                             </button>
+                            {% if is_superuser %}
+                            <a href="{% url 'edit_product' product.id %}"class="btn btn-info mt-2" >Επεξεργασία</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

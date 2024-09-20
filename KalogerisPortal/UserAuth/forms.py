@@ -11,7 +11,6 @@ class RegisterForm(forms.ModelForm):
     # Employee fields
     name = forms.CharField(max_length=100, required=True, help_text='Enter your first name.')
     surname = forms.CharField(max_length=100, required=True, help_text='Enter your last name.')
-    date_of_birth = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), help_text='Select your date of birth.')
     date_of_joining = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), help_text='Select your joining date.')
     branch = forms.ModelChoiceField(
         queryset=Branch.objects.all(),
@@ -20,10 +19,12 @@ class RegisterForm(forms.ModelForm):
         to_field_name="name",  # Use the name field for choices
         label="Branch"
     )
+    salary = forms.DecimalField(max_digits=10, decimal_places=2, required=False, help_text='Enter your total salary.')
+    totalSalary = forms.DecimalField(max_digits=10, decimal_places=2, required=False, help_text='Enter your total salary(plus extras).')
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password', 'confirm_password', 'name', 'surname', 'date_of_birth', 'date_of_joining', 'branch']
+        fields = ['username', 'email', 'password', 'confirm_password', 'name', 'surname', 'date_of_joining', 'salary', 'totalSalary',  'branch']
 
     def clean(self):
         cleaned_data = super().clean()
@@ -40,16 +41,43 @@ class RegisterForm(forms.ModelForm):
         user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()
+            salary=self.cleaned_data['salary']
+            totalSalary=self.cleaned_data['totalSalary']
+            if salary == None:
+                salary=0
+            if totalSalary == None:
+                totalSalary=0
             
             # Create and save the Employee instance
             employee = Employee(
                 user_id=user,
                 name=self.cleaned_data['name'],
                 Surname=self.cleaned_data['surname'],
-                date_of_birth=self.cleaned_data['date_of_birth'],
                 date_of_joining=self.cleaned_data['date_of_joining'],
-                branch=self.cleaned_data['branch']
+                branch=self.cleaned_data['branch'],
+                salary=salary,
+                totalSalary=totalSalary 
+                
             )
             employee.save()
 
+        return user
+    
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'is_superuser']
+        widgets = {
+            'is_superuser': forms.CheckboxInput(),
+        }
+
+    password = forms.CharField(widget=forms.PasswordInput(), required=False)
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        if self.cleaned_data['password']:
+            user.set_password(self.cleaned_data['password'])
+        if commit:
+            user.save()
         return user

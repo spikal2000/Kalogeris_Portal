@@ -16,7 +16,10 @@ from datetime import datetime
 @login_required(login_url='login')
 def product_list(request):
     products = Product.objects.all()
-    context = {'products': products}
+    context = {
+        'products': products,
+        'is_superuser': request.user.is_superuser
+    }
     return render(request, 'ProductOrders/products.html', context)
 
 @login_required(login_url='login')
@@ -163,3 +166,18 @@ def update_item_status(request):
         })
     except OrderItem.DoesNotExist:
         return JsonResponse({'success': False, 'error': 'Item not found'}, status=404)
+    
+
+
+@login_required(login_url='login')
+@permission_required('ProductOrders.change_product', login_url='index')
+def edit_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('ProductsOrders')
+    else:
+        form = ProductForm(request.POST or None, request.FILES or None, instance=product)
+    return render(request, 'ProductOrders/edit_product.html', {'form': form, 'product': product})
