@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from Main.models import Suppliers
 
 # Create your models here.
 class Product(models.Model):
@@ -29,7 +30,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     uom = models.CharField(max_length=50, choices=UOM_CHOICES)  # Unit of Measurement
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
-    supplier = models.CharField(max_length=100)
+    supplier = models.ForeignKey(Suppliers, on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)

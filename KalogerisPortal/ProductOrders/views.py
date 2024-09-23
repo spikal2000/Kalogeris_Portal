@@ -15,7 +15,7 @@ from datetime import datetime
 
 @login_required(login_url='login')
 def product_list(request):
-    products = Product.objects.all()
+    products = Product.objects.all().select_related('supplier')
     context = {
         'products': products,
         'is_superuser': request.user.is_superuser
