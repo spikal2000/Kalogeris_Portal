@@ -66,17 +66,19 @@ def order_list(request):
 def get_orders(request):
     status_filter = request.GET.get('status', '')
     date_filter = request.GET.get('date', '')
+    supplier_filter = request.GET.get('supplier', '')
 
-    orders = ProductOrder.objects.all()
+    orders = ProductOrder.objects.all().select_related('user_id')
 
     if status_filter:
         orders = orders.filter(status=status_filter)
 
     if date_filter:
         filter_date = datetime.strptime(date_filter, '%Y-%m-%d').date()
-        orders = orders.filter(
-            created_at__date=filter_date
-        )
+        orders = orders.filter(created_at__date=filter_date)
+
+    if supplier_filter:
+        orders = orders.filter(items__product_id__supplier__name=supplier_filter).distinct()
 
     # Ordering: Active orders first, then cancelled/completed
     orders = orders.annotate(
@@ -89,15 +91,19 @@ def get_orders(request):
 
     orders_data = []
     for order in orders:
-        items = [f"{item.product_id.name} (x{item.quantity})" for item in order.items.all()]
+        items = order.items.all().select_related('product_id__supplier')
+        suppliers = set(item.product_id.supplier.name for item in items if item.product_id.supplier)
+        supplier = ', '.join(suppliers) if suppliers else 'N/A'
+
         orders_data.append({
             'id': order.id,
             'user': order.user_id.username,
             'branch': order.branch,
             'status': order.status,
-            'created_at': timezone.localtime(order.created_at).strftime("%Y-%m-%d"),  # Changed this line
-            'created_time': timezone.localtime(order.created_at).strftime("%H:%M:%S"),  # Added this line
-            'items': items,
+            'created_at': timezone.localtime(order.created_at).strftime("%Y-%m-%d"),
+            'created_time': timezone.localtime(order.created_at).strftime("%H:%M:%S"),
+            'items': [f"{item.product_id.name} (x{item.quantity})" for item in items],
+            'supplier': supplier,
         })
     return JsonResponse({'orders': orders_data}, encoder=DjangoJSONEncoder)
 
@@ -122,8 +128,9 @@ def get_order_details(request):
         'id': item.id,
         'product_name': item.product_id.name,
         'quantity': item.quantity,
-        'is_ready': item.is_ready
-    } for item in order.items.all()]
+        'is_ready': item.is_ready,
+        'supplier': item.product_id.supplier.name if item.product_id.supplier else 'N/A'
+    } for item in order.items.all().select_related('product_id__supplier')]
     
     order_data = {
         'id': order.id,

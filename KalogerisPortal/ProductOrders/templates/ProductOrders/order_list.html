@@ -62,28 +62,35 @@
         </a>
         <h1 class="text-center my-4">Λίστα Παραγγελιών</h1>
         <!-- filter controls -->
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label for="statusFilter" class="form-label">Φίλτρο Κατάστασης:</label>
-                    <select id="statusFilter" class="form-select">
-                        <option value="">Όλες</option>
-                        <option value="pending">Σε Εκκρεμότητα</option>
-                        <option value="processing">Σε Επεξεργασία</option>
-                        <option value="ready_for_delivery">Έτοιμο για Παράδοση</option>
-                        <option value="shipped">Απεστάλη</option>
-                        <option value="delivered">Παραδόθηκε</option>
-                        <option value="cancelled">Ακυρώθηκε</option>
-                    </select>
-                </div>
-                <div class="col-md-4" style="display: none;">
-                    <label for="dateFilter" class="form-label">Φίλτρο Ημερομηνίας:</label>
-                    <input type="date" id="dateFilter" class="form-control">
-                </div>
-                <div class="col-md-4 d-flex align-items-end">
-                    <button onclick="applyFilters()" class="btn btn-primary me-2">Εφαρμογή Φίλτρων</button>
-                    <button onclick="clearFilters()" class="btn btn-secondary">Καθαρισμός Φίλτρων</button>
-                </div>
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label for="statusFilter" class="form-label">Φίλτρο Κατάστασης:</label>
+                <select id="statusFilter" class="form-select">
+                    <option value="">Όλες</option>
+                    <option value="pending">Σε Εκκρεμότητα</option>
+                    <option value="processing">Σε Επεξεργασία</option>
+                    <option value="ready_for_delivery">Έτοιμο για Παράδοση</option>
+                    <option value="shipped">Απεστάλη</option>
+                    <option value="delivered">Παραδόθηκε</option>
+                    <option value="cancelled">Ακυρώθηκε</option>
+                </select>
             </div>
+            <div class="col-md-3">
+                <label for="supplierFilter" class="form-label">Φίλτρο Προμηθευτή:</label>
+                <select id="supplierFilter" class="form-select">
+                    <option value="">Όλοι οι Προμηθευτές</option>
+                    <!-- We'll populate this dynamically with JavaScript -->
+                </select>
+            </div>
+            <div class="col-md-3" style="display: none;">
+                <label for="dateFilter" class="form-label">Φίλτρο Ημερομηνίας:</label>
+                <input type="date" id="dateFilter" class="form-control">
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button onclick="applyFilters()" class="btn btn-primary me-2">Εφαρμογή Φίλτρων</button>
+                <button onclick="clearFilters()" class="btn btn-secondary">Καθαρισμός Φίλτρων</button>
+            </div>
+        </div>
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
@@ -95,6 +102,7 @@
                                 <th>Κατάστημα</th>
                                 <th>Κατάσταση</th>
                                 <th>Ημ/νία Δημιουργίας</th>
+                                <th>Προμηθευτής</th>
                                 <th>Ενέργειες</th>
                             </tr>
                         </thead>
@@ -130,20 +138,24 @@
         let currentOrderId = null;
         let currentFilters = {
             status: '',
-            date: ''
+            date: '',
+             supplier: ''
         };
 
         function applyFilters() {
             currentFilters.status = document.getElementById('statusFilter').value;
             currentFilters.date = document.getElementById('dateFilter').value;
+            currentFilters.supplier = document.getElementById('supplierFilter').value; // Add this line
             fetchOrders();
         }
 
         function clearFilters() {
             document.getElementById('statusFilter').value = '';
             document.getElementById('dateFilter').value = '';
+            document.getElementById('supplierFilter').value = ''; // Add this line
             currentFilters.status = '';
             currentFilters.date = '';
+            currentFilters.supplier = ''; // Add this line
             fetchOrders();
         }
 
@@ -162,6 +174,7 @@
                                 <td>${order.branch}</td>
                                 <td><span class="badge bg-${getStatusColor(order.status)}">${translateStatus(order.status)}</span></td>
                                 <td>${formatDate(order.created_at)} ${order.created_time}</td>
+                                <td>${order.supplier || 'N/A'}</td> <!-- Add this line to display supplier -->
                                 <td>
                                     <button class="btn btn-info btn-sm" onclick="viewOrderDetails(${order.id})">
                                         <i class="bi bi-eye-fill"></i> Λεπτομέρειες
@@ -171,9 +184,18 @@
                         `;
                         tableBody.innerHTML += row;
                     });
+        
+                    // Populate supplier filter options
+                    const supplierFilter = document.getElementById('supplierFilter');
+                    supplierFilter.innerHTML = '<option value="">Όλοι οι Προμηθευτές</option>';
+                    const suppliers = [...new Set(data.orders.map(order => order.supplier).filter(Boolean))];
+                    suppliers.forEach(supplier => {
+                        supplierFilter.innerHTML += `<option value="${supplier}">${supplier}</option>`;
+                    });
                 })
                 .catch(error => console.error('Σφάλμα:', error));
         }
+
         function formatDate(dateString) {
             const options = { 
                 year: 'numeric', 
@@ -222,7 +244,9 @@
                                             <input type="checkbox" id="item_${item.id}" 
                                                    onchange="updateItemStatus(${item.id}, this.checked)"
                                                    ${item.is_ready ? 'checked' : ''}>
-                                            <label for="item_${item.id}">${item.product_name} (x${item.quantity})</label>
+                                            <label for="item_${item.id}">${item.product_name} (x${item.quantity})
+                                                <small class="text-muted"> - Προμηθευτής: ${item.supplier}</small>
+                                            </label>
                                         </div>
                                         <span class="badge bg-primary rounded-pill">${item.is_ready ? 'Έτοιμο' : 'Σε εξέλιξη'}</span>
                                     </li>
