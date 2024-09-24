@@ -92,7 +92,7 @@ DATABASES = {
         'NAME': 'KalogerisPortal_UAT',
         'USER': 'admin',
         'PASSWORD': 'Vaggosspyros!997',
-        'HOST': 'localhost',
+        'HOST': '84.254.29.206',
         'PORT': 3306,
     }
 }
