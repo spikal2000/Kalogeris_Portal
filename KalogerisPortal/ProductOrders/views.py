@@ -22,8 +22,8 @@ def product_list(request):
     }
     return render(request, 'ProductOrders/products.html', context)
 
+
 @login_required(login_url='login')
-@require_POST
 @csrf_exempt
 def place_order(request):
     data = json.loads(request.body)
@@ -60,9 +60,11 @@ def add_product(request):
 
 
 
+@login_required(login_url='login')
 def order_list(request):
     return render(request, 'ProductOrders/order_list.html')
 
+@login_required(login_url='login')
 def get_orders(request):
     status_filter = request.GET.get('status', '')
     date_filter = request.GET.get('date', '')
@@ -108,7 +110,8 @@ def get_orders(request):
     return JsonResponse({'orders': orders_data}, encoder=DjangoJSONEncoder)
 
 
-@require_POST
+
+@login_required(login_url='login')
 @csrf_exempt
 def update_order_status(request):
     data = json.loads(request.body)
@@ -121,6 +124,7 @@ def update_order_status(request):
     
     return JsonResponse({'success': True})
 
+@login_required(login_url='login')
 def get_order_details(request):
     order_id = request.GET.get('order_id')
     order = get_object_or_404(ProductOrder, id=order_id)
@@ -143,7 +147,7 @@ def get_order_details(request):
     
     return JsonResponse(order_data)
 
-@require_POST
+@login_required(login_url='login')
 @csrf_exempt
 def update_item_status(request):
     data = json.loads(request.body)

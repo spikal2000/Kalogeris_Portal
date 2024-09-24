@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from .forms import RegisterForm, UserEditForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.views.decorators.http import require_POST
 from django.contrib.auth.models import User
 from Main.models import Employee
+ 
 
 # Create your views here.
-
+@login_required(login_url='login')
+@permission_required('UserAuth.add_user', login_url='login')
 def sign_up(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -19,12 +21,15 @@ def sign_up(request):
         form = RegisterForm()
     return render(request, 'registration/sign_up.html', {'form': form})
 
-
+@login_required(login_url='login')
+@permission_required('UserAuth.view_user', login_url='login')
 def user_list(request):
     employees = Employee.objects.all().select_related('user')
     context = {'Employees': employees}
     return render(request, 'UserAuth/view_users.html', context)
 
+@login_required(login_url='login')
+@permission_required('UserAuth.view_user', login_url='login')
 def view_user(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     employee = get_object_or_404(Employee, user=user)
@@ -32,6 +37,7 @@ def view_user(request, user_id):
     return render(request, 'UserAuth/view_user.html', context)
 
 @login_required
+@permission_required('UserAuth.change_user', login_url='login')
 def edit_user(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     if request.method == 'POST':
