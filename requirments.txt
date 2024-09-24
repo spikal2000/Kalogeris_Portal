@@ -1,7 +1,8 @@
 django
+mysqlclient
+gunicorn
 crispy-bootstrap5
 django-crispy-forms
-mysqlclient
 Pillow
 django-extensions
 django-model-utils
