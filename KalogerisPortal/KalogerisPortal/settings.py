@@ -89,9 +89,9 @@ WSGI_APPLICATION = 'KalogerisPortal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django-test',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'NAME': 'KalogerisPortal_UAT',
+        'USER': 'admin',
+        'PASSWORD': 'Vaggosspyros!997',
         'HOST': 'localhost',
         'PORT': 3306,
     }
