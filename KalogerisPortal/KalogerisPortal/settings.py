@@ -150,7 +150,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(MAIN_APP_DIR, 'static'),
 ]
-STATIC_ROOT = os.path.join(MAIN_APP_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(MAIN_APP_DIR, 'static')
 
 
 # Base directory of your project
