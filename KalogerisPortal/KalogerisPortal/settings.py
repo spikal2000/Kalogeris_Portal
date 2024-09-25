@@ -25,8 +25,10 @@ SECRET_KEY = 'django-insecure-l#ps262o&==(t1sm!bd7r5jgh!7@h_b_&f#%vk$t$div#=er#)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['kalogeris-portal.net', 'www.kalogeris-portal.net']
 
+CSRF_TRUSTED_ORIGINS = ['https://kalogeris-portal.net', 'https://www.kalogeris-portal.net']
 
 # Application definition
 
@@ -128,12 +130,11 @@ TIME_ZONE = 'Europe/Athens'
 USE_I18N = True
 
 USE_TZ = True
-
+import os
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -145,13 +146,16 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/auth/login/'
 
 
+
+
 import os
-MAIN_APP_DIR = os.path.join(BASE_DIR, 'main')
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(MAIN_APP_DIR, 'static'),
+    os.path.join(BASE_DIR,'static'),
 ]
-STATIC_ROOT = os.path.join(MAIN_APP_DIR, 'staticfiles')
+
 
 
 # Base directory of your project
