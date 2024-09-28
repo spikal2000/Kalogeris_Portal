@@ -15,6 +15,7 @@ class Employee(models.Model):
     salary = models.DecimalField(max_digits=10, decimal_places=2)
     totalSalary = models.DecimalField(max_digits=10, decimal_places=2)
     date_of_joining = models.DateField()
+    IBAN = models.CharField(max_length=100)
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     
     def __str__(self) -> str:
@@ -26,7 +27,6 @@ class Suppliers(models.Model):
     name = models.CharField(max_length=100)
     IBAN = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
-    currentMoney = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     ownMoney = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     
     def __str__(self) -> str:

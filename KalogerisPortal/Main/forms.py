@@ -10,7 +10,7 @@ from django import forms
 class SupplierForm(forms.ModelForm):
     class Meta:
         model = Suppliers
-        fields = ['name', 'IBAN', 'description', 'currentMoney', 'ownMoney']
+        fields = ['name', 'IBAN', 'description', 'ownMoney']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'IBAN': forms.TextInput(attrs={'class': 'form-control'}),

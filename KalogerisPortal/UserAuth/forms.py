@@ -12,6 +12,7 @@ class RegisterForm(forms.ModelForm):
     name = forms.CharField(max_length=100, required=True, help_text='Enter your first name.')
     surname = forms.CharField(max_length=100, required=True, help_text='Enter your last name.')
     date_of_joining = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}), help_text='Select your joining date.')
+    IBAN = forms.CharField(max_length=100, required=False, help_text='Enter the IBAN.')
     branch = forms.ModelChoiceField(
         queryset=Branch.objects.all(),
         required=True,
