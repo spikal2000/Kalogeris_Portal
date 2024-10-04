@@ -1,0 +1,81 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<div class="container-fluid mt-3">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card shadow bakery-card">
+                <div class="card-header bakery-header">
+                    <h2 class="mb-0">Επιβεβαίωση Διαγραφής Εξόδου</h2>
+                </div>
+                <div class="card-body bakery-body">
+                    <div class="scrollable-content">
+                        <p>Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το έξοδο;</p>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-3">
+                                <label class="form-label"><strong>Προμηθευτής:</strong></label>
+                                <input type="text" class="form-control" value="{{ expense.supplier }}" readonly>
+                            </div>
+                            <div class="col-12 col-sm-6 mb-3">
+                                <label class="form-label"><strong>Ποσό:</strong></label>
+                                <input type="text" class="form-control" value="{{ expense.amount }} €" readonly>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mb-3">
+                                <label class="form-label"><strong>Ημερομηνία:</strong></label>
+                                <input type="text" class="form-control" value="{{ expense.date }}" readonly>
+                            </div>
+                            <div class="col-12 col-sm-6 mb-3">
+                                <label class="form-label"><strong>Υποκατάστημα:</strong></label>
+                                <input type="text" class="form-control" value="{{ expense.branch }}" readonly>
+                            </div>
+                        </div>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-danger">Ναι, διαγραφή</button>
+                                    <a href="{% url 'expenses' %}" class="btn btn-secondary">Άκυρο</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bakery-card {
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: #FFFAF0;
+        max-height: 80vh; /* Limit the maximum height of the card */
+        display: flex;
+        flex-direction: column;
+    }
+    .bakery-header {
+        background-color: #C19A6B;
+        color: #FFF;
+        padding: 20px;
+        font-family: 'Brush Script MT', cursive;
+    }
+    .bakery-body {
+        padding: 20px;
+        overflow-y: auto; /* Enable vertical scrolling */
+        flex-grow: 1; /* Allow the body to grow and fill available space */
+    }
+    .scrollable-content {
+        min-height: min-content; /* Ensure content takes at least its minimum height */
+    }
+    @media (max-height: 600px) {
+        .bakery-card {
+            max-height: 90vh; /* Increase max height for very small screens */
+        }
+    }
+</style>
+
+{% endblock %}

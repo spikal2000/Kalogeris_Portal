@@ -1,0 +1,154 @@
+/* Navbar styles */
+.navbar {
+    background-color: rgba(210, 180, 140, 0.9); /* Tan with transparency */
+    box-shadow: 0 2px 8px rgba(139, 69, 19, 0.3); /* Shadow with a hint of saddlebrown */
+    backdrop-filter: blur(5px);
+}
+
+.navbar-brand {
+    font-family: 'Brush Script MT', cursive;
+    color: #8B4513; /* SaddleBrown color for the text */
+    transition: color 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(255, 226, 173, 0.7); /* Light wheat text shadow */
+}
+
+.navbar-brand:hover {
+    color: #A0522D; /* Sienna color on hover */
+}
+
+.nav-link {
+    color: #5E2C04; /* Dark brown for nav links */
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #A0522D; /* Sienna color on hover/focus */
+}
+
+.nav-link.active {
+    color: #A0522D; /* Sienna color for active link */
+    font-weight: 700;
+}
+
+/* Cool hover effects for nav buttons */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #8B4513; /* SaddleBrown color */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-link::after {
+    content: '🥐';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Add a subtle texture to the navbar */
+.navbar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+#logo-img {
+    width: 80px;
+    height: 80px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(139, 69, 19, 0.4)); /* Adds a subtle shadow to the logo */
+}
+
+@keyframes logoRise {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+.navbar-brand:hover #logo-img {
+    animation: logoRise 1s ease-in-out infinite;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    .navbar-brand img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    .navbar-brand img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-brand {
+        font-size: 2rem;
+    }
+    .navbar-brand img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Additional styles for warmth */
+.navbar-toggler {
+    border-color: rgba(139, 69, 19, 0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(139, 69, 19, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #5E2C04;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    color: #A0522D;
+}
+
+#centered-logo {
+    width: 300px; 
+    height: 300px; 
+    z-index: 2;
+    position: relative;
+    animation: logoFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(139, 69, 19, 0.3));
+}

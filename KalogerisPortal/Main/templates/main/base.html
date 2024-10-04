@@ -38,10 +38,13 @@
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'ProductsOrders' %}">Παραγγελίες Προϊόντων</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'ProductsOrders' %}">Παραγγελία</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'order_list' %}">Λίστα Παραγγελιών</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'order_list' %}">Λίστα</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'expenses' %}">Έξοδα</a>
                     </li>
                 {% endif %}
                 {% if user.is_superuser %}

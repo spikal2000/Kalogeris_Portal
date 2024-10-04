@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'UserAuth',
     'ProductOrders',
     'Dashboard',
+    'expenses',
+
 
     # 3rd party apps'
     'crispy_forms',
@@ -91,10 +93,10 @@ WSGI_APPLICATION = 'KalogerisPortal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'KalogerisPortal_UAT',
-        'USER': 'admin',
-        'PASSWORD': 'Vaggosspyros!997',
-        'HOST': '84.254.29.206',
+        'NAME': 'django-test',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
         'PORT': 3306,
     }
     
@@ -153,7 +155,7 @@ import os
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,'KalogerisPortal','static'),
 ]
 
 

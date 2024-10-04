@@ -145,17 +145,17 @@
         function applyFilters() {
             currentFilters.status = document.getElementById('statusFilter').value;
             currentFilters.date = document.getElementById('dateFilter').value;
-            currentFilters.supplier = document.getElementById('supplierFilter').value; // Add this line
+            currentFilters.supplier = document.getElementById('supplierFilter').value;
             fetchOrders();
         }
 
         function clearFilters() {
             document.getElementById('statusFilter').value = '';
             document.getElementById('dateFilter').value = '';
-            document.getElementById('supplierFilter').value = ''; // Add this line
+            document.getElementById('supplierFilter').value = '';
             currentFilters.status = '';
             currentFilters.date = '';
-            currentFilters.supplier = ''; // Add this line
+            currentFilters.supplier = '';
             fetchOrders();
         }
 
@@ -174,7 +174,7 @@
                                 <td>${order.branch}</td>
                                 <td><span class="badge bg-${getStatusColor(order.status)}">${translateStatus(order.status)}</span></td>
                                 <td>${formatDate(order.created_at)} ${order.created_time}</td>
-                                <td>${order.supplier || 'N/A'}</td> <!-- Add this line to display supplier -->
+                                <td>${order.supplier || 'N/A'}</td> <!--display supplier -->
                                 <td>
                                     <button class="btn btn-info btn-sm" onclick="viewOrderDetails(${order.id})">
                                         <i class="bi bi-eye-fill"></i> Λεπτομέρειες
@@ -361,7 +361,7 @@
             return new Date(dateString).toLocaleString('el-GR', options);
         }
 
-        // Λήψη παραγγελιών αμέσως και στη συνέχεια κάθε 5 δευτερόλεπτα
+        // Λήψη παραγγελιών αμέσως και στη συνέχεια κάθε 30 δευτερόλεπτα
         fetchOrders();
         setInterval(fetchOrders, 30000);
     </script>

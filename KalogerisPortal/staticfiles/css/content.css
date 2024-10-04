@@ -1,0 +1,33 @@
+.content-area {
+    height: calc(100vh - 110px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    background: linear-gradient(
+        135deg,
+        rgba(255, 226, 173, 0.7) 0%,    /* Light wheat */
+        rgba(255, 190, 118, 0.7) 25%,   /* Peach */
+        rgba(210, 180, 140, 0.7) 50%,   /* Tan */
+        rgba(193, 154, 107, 0.7) 75%,   /* Light brown */
+        rgba(160, 82, 45, 0.7) 100%     /* Sienna */
+    );
+    position: relative;
+}
+
+.content-area::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    z-index: 1;
+    pointer-events: none; /* Ensure this doesn't interfere with clicking */
+}
+
+#centered-logo {
+    width: 200px; 
+    height: 200px; 
+}
