@@ -32,8 +32,8 @@ ownMoney = models.DecimalField(max_digits=10, decimal_places=2, default=0)
                                 {{ form.description }}
                             </div>
                             <div class="mb-3">
-                                <label for="{{ form.currentMoney.id_for_label }}" class="form-label">Τιμολόγιο €</label>
-                                {{ form.currentMoney }}
+                                <label for="{{ form.PID.id_for_label }}" class="form-label">PID</label>
+                                {{ form.PID }}
                             </div>
                             <div class="mb-3">
                                 <label for="{{ form.ownMoney.id_for_label }}" class="form-label">Χρωστούμενα €</label>

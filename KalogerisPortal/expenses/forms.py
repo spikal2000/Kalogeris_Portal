@@ -18,7 +18,7 @@ class add_expense(forms.ModelForm):
         widgets = {
             'supplier': forms.Select(attrs={'class': 'form-control'}),
             'amount': forms.NumberInput(attrs={'class': 'form-control'}),
-            'date': forms.DateInput(attrs={'class': 'form-control'}),
+            'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'format': '%d-%m-%Y'}),
             'paid': forms.CheckboxInput(attrs={'class': 'form-control'}),
             'branch': forms.Select(attrs={'class': 'form-control'}),
         }
@@ -31,3 +31,4 @@ class add_expense(forms.ModelForm):
         
         self.fields['supplier'].queryset = Suppliers.objects.all()
         self.fields['branch'].queryset = Branch.objects.all()
+        

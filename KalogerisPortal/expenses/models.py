@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.db.models.signals import post_save, post_delete
+from django.dispatch import receiver
 
 #Expenses
 class Expense(models.Model):
@@ -13,3 +14,13 @@ class Expense(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+@receiver(post_save, sender=Expense)
+@receiver(post_delete, sender=Expense)
+def update_supplier_own_money(sender, instance, **kwargs):
+    from Main.models import Suppliers  # Import here to avoid circular import
+    supplier = instance.supplier
+    unpaid_sum = Expense.objects.filter(supplier=supplier, paid=False).aggregate(models.Sum('amount'))['amount__sum'] or 0
+    supplier.ownMoney = unpaid_sum
+    supplier.save()

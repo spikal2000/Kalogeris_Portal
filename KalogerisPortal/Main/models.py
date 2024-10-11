@@ -27,9 +27,15 @@ class Suppliers(models.Model):
     name = models.CharField(max_length=100)
     IBAN = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
+    PID = models.CharField(max_length=100, blank=True, null=True)
     ownMoney = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     
     def __str__(self) -> str:
         return self.name
     
+    def update_own_money(self):
+        from .models import Expense  # Import here to avoid circular import
+        unpaid_sum = Expense.objects.filter(supplier=self, paid=False).aggregate(models.Sum('amount'))['amount__sum'] or 0
+        self.ownMoney = unpaid_sum
+        self.save()
 
