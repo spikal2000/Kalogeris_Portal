@@ -1,0 +1,67 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow bakery-card">
+                <div class="card-header bakery-header d-flex justify-content-between align-items-center">
+                    <h3 class="mb-0">Προμηθευτές</h3>
+                    <a href="{% url 'add_suppliers' %}" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Προσθήκη Προμηθευτή
+                    </a>
+                </div>
+                <div class="card-body bakery-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Όνομα</th>
+                                    <th>IBAN</th>
+                                    <th>PID</th>
+                                    <th>Χρωστούμενα</th>
+                                    <th>Περιγραφή</th>
+                                    <th>Ενέργειες</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for supplier in suppliers %}
+                                <tr>
+                                    <td>{{ supplier.name }}</td>
+                                    <td>{{ supplier.IBAN }}</td>
+                                    <td>{{ supplier.PID }}</td>
+                                    <td>€{{ supplier.ownMoney }}</td>
+                                    <td>
+                                        {% if supplier.description %}
+                                            {{ supplier.description|truncatechars:50 }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a href="{% url 'edit_supplier' supplier.id %}" class="btn btn-sm btn-warning">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            {% comment %} <a href="{% url 'delete_supplier' supplier.id %}" class="btn btn-sm btn-danger" 
+                                               onclick="return confirm('Είστε σίγουροι ότι θέλετε να διαγράψετε αυτόν τον προμηθευτή;')">
+                                                <i class="fas fa-trash"></i>
+                                            </a> {% endcomment %}
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="6" class="text-center">Δεν υπάρχουν προμηθευτές.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'ProductOrders',
     'Dashboard',
     'expenses',
+    'inventory',
 
 
     # 3rd party apps'
@@ -93,12 +94,20 @@ WSGI_APPLICATION = 'KalogerisPortal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'KalogerisPortal_UAT',
-        'USER': 'admin',
-        'PASSWORD': 'Vaggosspyros!997',
-        'HOST': '84.254.29.206',
+        'NAME': 'kalogeris_portal',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
         'PORT': 3306,
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'KalogerisPortal_UAT',
+    #     'USER': 'admin',
+    #     'PASSWORD': 'Vaggosspyros!997',
+    #     'HOST': '84.254.29.206',
+    #     'PORT': 3306,
+    # }
     
 }
 
