@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'Dashboard',
     'expenses',
     'inventory',
+    'Payments',
 
 
     # 3rd party apps'

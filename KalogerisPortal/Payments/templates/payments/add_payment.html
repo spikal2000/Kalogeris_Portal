@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% block content %}
+  <div class="container-fluid mt-3">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <div class="card shadow bakery-card">
+          <div class="card-header bakery-header">
+            <h2 class="mb-0"><i class="fas fa-bread-slice me-2"></i> Προσθήκη Πληρωμής</h2>
+          </div>
+          <div class="card-body bakery-body">
+            <form id="bakery-form" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-12 col-sm-6 mb-3">
+                  <label for="{{ form.supplier.id_for_label }}" class="form-label">Προμηθευτής</label>
+                  {{ form.supplier }}
+                </div>
+                <div class="col-12 col-sm-6 mb-3">
+                  <label for="{{ form.amount.id_for_label }}" class="form-label">Ποσό</label>
+                  {{ form.amount }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary w-100">Πληρωμή</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .bakery-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: #FFFAF0;
+      margin: 0 auto;
+    }
+    .bakery-header {
+      background-color: #C19A6B;
+      color: #FFF;
+      padding: 15px;
+      font-family: 'Brush Script MT', cursive;
+    }
+    .bakery-body {
+      padding: 15px;
+    }
+    .custom-checkbox {
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: 576px) {
+      .bakery-card {
+        border-radius: 0;
+      }
+      .bakery-header h2 {
+        font-size: 1.5rem;
+      }
+      .form-control, .btn {
+        font-size: 14px;
+      }
+    }
+  </style>
+{% endblock %}

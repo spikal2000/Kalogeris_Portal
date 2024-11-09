@@ -51,9 +51,9 @@ class RegisterForm(forms.ModelForm):
             
             # Create and save the Employee instance
             employee = Employee(
-                user_id=user,
+                user=user,
                 name=self.cleaned_data['name'],
-                Surname=self.cleaned_data['surname'],
+                surname=self.cleaned_data['surname'],
                 date_of_joining=self.cleaned_data['date_of_joining'],
                 branch=self.cleaned_data['branch'],
                 salary=salary,

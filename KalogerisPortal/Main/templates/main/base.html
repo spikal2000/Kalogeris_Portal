@@ -37,12 +37,12 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Αρχική</a>
                 </li>
                 {% if user.is_authenticated %}
-                    <li class="nav-item">
+                    {% comment %} <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'ProductsOrders' %}">Παραγγελία</a>
-                    </li>
-                    <li class="nav-item">
+                    </li> {% endcomment %}
+                    {% comment %} <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'order_list' %}">Λίστα</a>
-                    </li>
+                    </li> {% endcomment %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'expenses' %}">Έξοδα</a>
                     </li>

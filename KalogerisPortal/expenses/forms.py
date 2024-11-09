@@ -6,10 +6,6 @@ from django.apps import apps
 
 
 
-from django import forms
-
-
-
 #expenses
 class add_expense(forms.ModelForm):
     class Meta: 

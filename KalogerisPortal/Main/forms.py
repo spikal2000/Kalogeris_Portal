@@ -10,12 +10,10 @@ from django import forms
 class SupplierForm(forms.ModelForm):
     class Meta:
         model = Suppliers
-        fields = ['name', 'IBAN', 'description', 'ownMoney', 'PID']
+        fields = ['name', 'IBAN', 'description', 'PID']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'IBAN': forms.TextInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control'}),
-            'currentMoney': forms.NumberInput(attrs={'class': 'form-control'}),
-            'ownMoney': forms.NumberInput(attrs={'class': 'form-control'}),
             'PID': forms.TextInput(attrs={'class': 'form-control'}),
         }

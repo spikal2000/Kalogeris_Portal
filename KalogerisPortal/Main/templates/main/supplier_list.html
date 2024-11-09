@@ -19,8 +19,7 @@
                                 <tr>
                                     <th>Όνομα</th>
                                     <th>IBAN</th>
-                                    <th>PID</th>
-                                    <th>Χρωστούμενα</th>
+                                    <th>ΑΦΜ</th>
                                     <th>Περιγραφή</th>
                                     <th>Ενέργειες</th>
                                 </tr>
@@ -31,7 +30,6 @@
                                     <td>{{ supplier.name }}</td>
                                     <td>{{ supplier.IBAN }}</td>
                                     <td>{{ supplier.PID }}</td>
-                                    <td>€{{ supplier.ownMoney }}</td>
                                     <td>
                                         {% if supplier.description %}
                                             {{ supplier.description|truncatechars:50 }}

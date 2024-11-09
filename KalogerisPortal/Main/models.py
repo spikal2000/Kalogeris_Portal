@@ -29,18 +29,8 @@ class Suppliers(models.Model):
     IBAN = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
     PID = models.CharField(max_length=100, blank=True, null=True)
-    ownMoney = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    last_balance = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+
     
     def __str__(self) -> str:
         return self.name
     
-    def add_expense(self, amount):
-        """Helper method to safely add an expense"""
-        self.ownMoney = (self.ownMoney or 0) + amount
-        self.save()
-    
-    def subtract_payment(self, amount):
-        """Helper method to safely subtract a payment"""
-        self.ownMoney = max(0, (self.ownMoney or 0) - amount)
-        self.save()

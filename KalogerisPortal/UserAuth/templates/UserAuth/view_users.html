@@ -2,9 +2,11 @@
 {% block content %}
 <div class="container-fluid mt-3 mt-lg-5 px-2 px-lg-5 scrollable-container">
     <div class="card shadow">
-        <div class="card-header bg-primary text-white sticky-top">
+        <div class="card-header text-white sticky-top d-flex justify-content-between align-items-center">
             <h2 class="mb-0 fs-4 fs-lg-2">Λίστα Εργαζομένων</h2>
+            <a href="{% url 'sign_up' %}" class="btn btn-light"><i class="fas fa-plus-circle me-2"></i>Προσθήκη Εργαζμενου</a>
         </div>
+        
         <div class="card-body p-2 p-lg-3">
             <div class="table-responsive">
                 <table class="table table-hover table-sm table-bordered">
@@ -27,7 +29,7 @@
                             <td class="d-none d-sm-table-cell">{{ employee.salary|floatformat:2 }}</td>
                             <td class="d-none d-lg-table-cell">{{ employee.totalSalary|floatformat:2 }}</td>
                             <td>
-                                <a href="{% url 'edit_user' employee.user.id %}" class="btn btn-outline-primary btn-sm">
+                                <a href="{% url 'edit_user' employee.user.id %}" class="btn btn-outline-secondary btn-sm">
                                     <i class="fas fa-edit d-inline d-sm-none"></i>
                                     <span class="d-none d-sm-inline"><i class="fas fa-edit me-1"></i>Επεξεργασία</span>
                                 </a>
@@ -49,37 +51,83 @@
 {% block extra_css %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <style>
+    :root {
+        --bakery-brown: #8B4513;
+        --bakery-cream: #FFF8DC;
+        --bakery-light-brown: #DEB887;
+        --bakery-dark-brown: #654321;
+    }
+
+    body {
+        background-color: var(--bakery-cream);
+    }
+
     .scrollable-container {
         max-height: calc(100vh - 20px);
         overflow-y: auto;
     }
+
     .table th, .table td {
         vertical-align: middle;
     }
+
     .card {
         border-radius: 15px;
         overflow: hidden;
+        border: 2px solid var(--bakery-light-brown);
     }
+
     .card-header {
-        background-color: #007bff;
+        background-color: var(--bakery-brown);
+        border-bottom: 3px solid var(--bakery-light-brown);
     }
-    .btn-outline-primary {
-        border-color: #007bff;
-        color: #007bff;
+
+    .btn-light {
+        background-color: var(--bakery-cream);
+        border-color: var(--bakery-light-brown);
+        color: var(--bakery-brown);
+        transition: all 0.3s ease;
     }
-    .btn-outline-primary:hover {
-        background-color: #007bff;
-        color: white;
+
+    .btn-light:hover {
+        background-color: var(--bakery-light-brown);
+        color: var(--bakery-dark-brown);
     }
+
+    .btn-outline-secondary {
+        border-color: var(--bakery-brown);
+        color: var(--bakery-brown);
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: var(--bakery-brown);
+        color: var(--bakery-cream);
+    }
+
+    .table {
+        background-color: white;
+    }
+
+    .table-light {
+        background-color: var(--bakery-light-brown) !important;
+        color: var(--bakery-dark-brown);
+    }
+
     .sticky-top {
         position: sticky;
         top: 0;
         z-index: 1020;
     }
+
     .table-responsive {
         max-height: calc(100vh - 150px);
         overflow-y: auto;
     }
+
+    .table-hover tbody tr:hover {
+        background-color: var(--bakery-cream) !important;
+    }
+
     @media (max-width: 576px) {
         .table-responsive {
             max-height: calc(100vh - 100px);
