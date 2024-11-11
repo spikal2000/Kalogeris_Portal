@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import pymysql
+pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -95,10 +96,10 @@ WSGI_APPLICATION = 'KalogerisPortal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kalogeris_portal',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'NAME': 'KalogerisPortal_PROD',
+        'USER': 'admin',
+        'PASSWORD': 'Vaggosspyros!997',
+        'HOST': '84.254.29.206',
         'PORT': 3306,
     }
     # 'default': {
