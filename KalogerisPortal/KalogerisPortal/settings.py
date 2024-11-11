@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['kalogeris-portal.net', 'www.kalogeris-portal.net', 'localhost']
 
-# CSRF_TRUSTED_ORIGINS = ['https://kalogeris-portal.net', 'https://www.kalogeris-portal.net']
+CSRF_TRUSTED_ORIGINS = ['https://kalogeris-portal.net', 'https://www.kalogeris-portal.net']
 
 # Application definition
 
