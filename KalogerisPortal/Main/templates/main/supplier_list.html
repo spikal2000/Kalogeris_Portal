@@ -1,65 +1,226 @@
 {% extends 'main/base.html' %}
-{% load static %}
-
 {% block content %}
-<div class="container mt-5">
-    <div class="row">
+<div class="container-fluid mt-4">
+    <div class="row justify-content-center">
         <div class="col-12">
             <div class="card shadow bakery-card">
-                <div class="card-header bakery-header d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0">Προμηθευτές</h3>
-                    <a href="{% url 'add_suppliers' %}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> Προσθήκη Προμηθευτή
-                    </a>
+                <div class="card-header bakery-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="mb-0"><i class="fas fa-truck me-2"></i> Προμηθευτές</h2>
+                        <a href="{% url 'add_suppliers' %}" class="btn btn-bakery-light">
+                            <i class="fas fa-plus-circle me-2"></i> Προσθήκη Προμηθευτή
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body bakery-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Όνομα</th>
-                                    <th>IBAN</th>
-                                    <th>ΑΦΜ</th>
-                                    <th>Περιγραφή</th>
-                                    <th>Ενέργειες</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for supplier in suppliers %}
-                                <tr>
-                                    <td>{{ supplier.name }}</td>
-                                    <td>{{ supplier.IBAN }}</td>
-                                    <td>{{ supplier.PID }}</td>
-                                    <td>
-                                        {% if supplier.description %}
-                                            {{ supplier.description|truncatechars:50 }}
-                                        {% else %}
-                                            -
-                                        {% endif %}
-                                    </td>
-                                    <td>
-                                        <div class="btn-group" role="group">
-                                            <a href="{% url 'edit_supplier' supplier.id %}" class="btn btn-sm btn-warning">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            {% comment %} <a href="{% url 'delete_supplier' supplier.id %}" class="btn btn-sm btn-danger" 
-                                               onclick="return confirm('Είστε σίγουροι ότι θέλετε να διαγράψετε αυτόν τον προμηθευτή;')">
-                                                <i class="fas fa-trash"></i>
-                                            </a> {% endcomment %}
-                                        </div>
-                                    </td>
-                                </tr>
-                                {% empty %}
-                                <tr>
-                                    <td colspan="6" class="text-center">Δεν υπάρχουν προμηθευτές.</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
+                    <div class="scrollable-container">
+                        <div class="table-responsive">
+                            <table class="table bakery-table">
+                                <thead>
+                                    <tr>
+                                        <th>Όνομα</th>
+                                        <th>IBAN</th>
+                                        <th>ΑΦΜ</th>
+                                        <th>Περιγραφή</th>
+                                        <th>Ενέργειες</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for supplier in suppliers %}
+                                    <tr>
+                                        <td>{{ supplier.name }}</td>
+                                        <td>{{ supplier.IBAN }}</td>
+                                        <td>{{ supplier.PID }}</td>
+                                        <td>
+                                            {% if supplier.description %}
+                                                {{ supplier.description|truncatechars:50 }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <div class="btn-group" role="group">
+                                                <a href="{% url 'edit_supplier' supplier.id %}" class="btn btn-sm btn-bakery">
+                                                    <i class="fas fa-edit me-1"></i> Επεξεργασία
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="5" class="text-center py-4">
+                                            <i class="fas fa-truck fa-2x mb-2 text-muted"></i>
+                                            <p class="mb-0">Δεν βρέθηκαν προμηθευτές.</p>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .bakery-card {
+        border: none;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: #FFFAF0;
+        margin: 0 auto;
+    }
+
+    .bakery-header {
+        background-color: #C19A6B;
+        color: #FFF;
+        padding: 20px;
+        font-family: 'Brush Script MT', cursive;
+    }
+
+    .bakery-body {
+        padding: 20px;
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><text x="50%" y="50%" font-size="80" text-anchor="middle" dy=".35em" font-family="Arial" fill="rgba(0,0,0,0.03)">🥐</text></svg>');
+        background-repeat: repeat;
+    }
+
+    .scrollable-container {
+        max-height: calc(100vh - 250px);
+        overflow-y: auto;
+        padding-right: 15px;
+    }
+
+    .bakery-table {
+        background-color: #FFF9E6;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .bakery-table thead {
+        background-color: #8B4513;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .bakery-table thead th {
+        padding: 15px;
+        border: none;
+        font-weight: 600;
+    }
+
+    .bakery-table tbody tr {
+        transition: all 0.3s ease;
+    }
+
+    .bakery-table tbody tr:hover {
+        background-color: #FFF;
+    }
+
+    .bakery-table td {
+        padding: 12px;
+        border-bottom: 1px solid #DEB887;
+        vertical-align: middle;
+    }
+
+    .btn-bakery {
+        background-color: #C19A6B;
+        border-color: #C19A6B;
+        color: #FFF;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-bakery:hover {
+        background-color: #8B4513;
+        border-color: #8B4513;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        color: #FFF;
+    }
+
+    .btn-bakery-light {
+        background-color: #FFF;
+        border-color: #C19A6B;
+        color: #8B4513;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-bakery-light:hover {
+        background-color: #C19A6B;
+        color: #FFF;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .btn-bakery-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: #FFF;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-bakery-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(220,53,69,0.3);
+        color: #FFF;
+    }
+
+    .bg-bakery-success {
+        background-color: #28a745;
+    }
+
+    .bg-bakery-danger {
+        background-color: #dc3545;
+    }
+
+    /* Custom scrollbar for webkit browsers */
+    .scrollable-container::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scrollable-container::-webkit-scrollbar-track {
+        background: #f1e1d0;
+    }
+
+    .scrollable-container::-webkit-scrollbar-thumb {
+        background-color: #C19A6B;
+        border-radius: 20px;
+        border: 3px solid #f1e1d0;
+    }
+
+    @media (max-width: 767px) {
+        .bakery-card {
+            border-radius: 0;
+        }
+
+        .scrollable-container {
+            padding-right: 0;
+        }
+
+        .btn-bakery, .btn-bakery-light, .btn-bakery-danger {
+            padding: 6px 12px;
+            font-size: 0.875rem;
+        }
+
+        .card-header h2 {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+
+
 {% endblock %}

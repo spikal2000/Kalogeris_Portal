@@ -1,6 +1,6 @@
 django
 mysqlclient
-gunicorn
+pymysql
 crispy-bootstrap5
 django-crispy-forms
 Pillow

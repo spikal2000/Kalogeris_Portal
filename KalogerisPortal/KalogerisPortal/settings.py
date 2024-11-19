@@ -24,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l#ps262o&==(t1sm!bd7r5jgh!7@h_b_&f#%vk$t$div#=er#)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
-ALLOWED_HOSTS = ['kalogeris-portal.net', 'www.kalogeris-portal.net', 'localhost']
+ALLOWED_HOSTS = ['kalogeris-portal.net', 'www.kalogeris-portal.net', 'http://127.0.0.1/']
 
-CSRF_TRUSTED_ORIGINS = ['https://kalogeris-portal.net', 'https://www.kalogeris-portal.net']
+CSRF_TRUSTED_ORIGINS = ['https://kalogeris-portal.net', 'https://www.kalogeris-portal.net', 'http://127.0.0.1/']
 
 # Application definition
 
@@ -166,7 +166,7 @@ import os
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'KalogerisPortal','staticfiles'),
+    os.path.join(BASE_DIR,'staticfiles'),
 ]
 
 
