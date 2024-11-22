@@ -22,6 +22,7 @@
                                         <th>IBAN</th>
                                         <th>ΑΦΜ</th>
                                         <th>Περιγραφή</th>
+                                        <th>Χρωστούμενα</th>
                                         <th>Ενέργειες</th>
                                     </tr>
                                 </thead>
@@ -38,6 +39,7 @@
                                                 -
                                             {% endif %}
                                         </td>
+                                        <td>{{ supplier.own_money }}</td>
                                         <td>
                                             <div class="btn-group" role="group">
                                                 <a href="{% url 'edit_supplier' supplier.id %}" class="btn btn-sm btn-bakery">

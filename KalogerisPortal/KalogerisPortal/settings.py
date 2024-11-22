@@ -24,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l#ps262o&==(t1sm!bd7r5jgh!7@h_b_&f#%vk$t$div#=er#)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
-ALLOWED_HOSTS = ['kalogeris-portal.net', 'www.kalogeris-portal.net', 'http://127.0.0.1/']
+# ALLOWED_HOSTS = ['kalogeris-portal.net', 'www.kalogeris-portal.net', 'http://127.0.0.1/']
 
-CSRF_TRUSTED_ORIGINS = ['https://kalogeris-portal.net', 'https://www.kalogeris-portal.net', 'http://127.0.0.1/']
+# CSRF_TRUSTED_ORIGINS = ['https://kalogeris-portal.net', 'https://www.kalogeris-portal.net', 'http://127.0.0.1/']
 
 # Application definition
 
@@ -94,22 +94,22 @@ WSGI_APPLICATION = 'KalogerisPortal.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'KalogerisPortal_PROD',
-        'USER': 'admin',
-        'PASSWORD': 'Vaggosspyros!997',
-        'HOST': '84.254.29.206',
-        'PORT': 3306,
-    }
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'KalogerisPortal_UAT',
+    #     'NAME': 'KalogerisPortal_PROD',
     #     'USER': 'admin',
     #     'PASSWORD': 'Vaggosspyros!997',
     #     'HOST': '84.254.29.206',
     #     'PORT': 3306,
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'KalogerisPortal_UAT',
+        'USER': 'admin',
+        'PASSWORD': 'Vaggosspyros!997',
+        'HOST': '84.254.29.206',
+        'PORT': 3306,
+    }
     
 }
 
